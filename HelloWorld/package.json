@@ -1,0 +1,15 @@
+{
+  "name": "helloworld",
+  "version": "1.0.0",
+  "description": "test de app",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "author": "Marc Sans",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^26.2.2"
+  }
+}
