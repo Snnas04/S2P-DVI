@@ -10,5 +10,5 @@ const createWindow = () => {
 }
 
 app.whenReady().then(() => {
-createWindow()
+  createWindow()
 })
