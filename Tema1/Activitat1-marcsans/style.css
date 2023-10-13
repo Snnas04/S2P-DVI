@@ -1,0 +1,207 @@
+@font-face {
+   font-family: 'Roboto';
+   src: url("../app/fonts/Roboto/Roboto-Regular.ttf");
+
+   font-family: 'Roboto-bold';
+   src: url("../app/fonts/Roboto/Roboto-Bold.ttf");
+
+   font-family: 'Roboto-medium';
+   src: url("../app/fonts/Roboto/Roboto-Medium.ttf");   
+}
+
+#frame {
+   display: flex;
+   width: 1269px;
+   height: 853px;
+   position: absolute;
+   font-family: Roboto;
+}
+
+#sideMenu {
+   display: flex;
+   flex-direction: column;
+   background-color: #EEF1F7;
+   border-radius: 6px 0px 0px 6px;
+   padding: 10px;
+   width: 200px;
+   height: 100%;
+}
+
+#brand div:last-child {
+   color: #9ca0ac;
+   font-size: small;
+}
+
+#stories,
+#user {
+   display: flex;
+}
+
+#storiesIcon,
+#profile {
+   margin-right: 10px;
+}
+
+#storiesIcon img {
+   width: 32px;
+   height: 32px;
+   margin-top: 3px;
+}
+
+#options {
+   margin-top: 35px;
+   flex: 1;
+   font-family: Roboto-medium;
+}
+
+#userName {
+   font-family: Roboto-medium;
+}
+
+#userInfo {
+   color: #9ca0ac;
+   font-size: small;
+}
+
+.options {
+   display: flex;
+   margin-bottom: 20px;
+}
+
+.options img {
+   margin-right: 10px;
+}
+
+.sectionMenu {
+   color: #9ca0ac;
+   margin-top: 35px;
+   margin-bottom: 15px;
+}
+
+#home {
+   margin-left: 40px;
+}
+
+#top {
+   display: flex;
+   margin-top: 35px;
+}
+
+#title {
+   display: flex;
+   font-family: Roboto-medium;
+}
+
+#title div {
+   margin-right: 5px;
+}
+
+#sectionsMenu {
+   display: flex;
+   margin-top: 20px;
+}
+
+.sections {
+   display: flex;
+   margin-right: 15px;
+   color: #9ca0ac;
+}
+
+.sections img {
+   margin-right: 5px;
+}
+
+#toptop {
+   flex: 1;
+}
+
+#preview {
+   color: #0066FF;
+   font-family: Roboto-medium;
+}
+
+#search {
+   /* margin-left: 170px; */
+   background-color: #0066FF;
+   border-radius: 10px;
+}
+
+#searchBox {
+   display: flex;
+   align-items: center;
+}
+
+#searchBox input {
+   background-color: #EEF1F7;
+   border-color: #0066FF;
+   border-radius: 10px 0px 0px 10px;
+   width: 230px;
+   margin-top: 5px;
+   margin-left: 5px;
+   padding-top: 15px;
+   padding-bottom: 15px;
+   outline: none;
+}
+
+.line {
+   border: 1px solid #d6dae4;
+   margin-top: 10px;
+   margin-bottom: 40px;
+}
+
+#top2 {
+   display: flex;
+}
+
+#bookTitle {
+   flex: 1;
+}
+
+#bookTitle div {
+   font-family: Roboto-medium;
+   margin-right: 5px;
+}
+
+#ig {
+   display: flex;
+   background-color: #2e3238;
+   color: #fff;
+   height: 25px;
+   width: 100px;
+   padding: 12px;
+   border-radius: 6px;
+}
+
+#ig img {
+   margin-right: 5px;
+}
+
+#ig div {
+   margin-top: 3px;
+}
+
+select {
+   border: 2px solid #0066FF;
+   border-radius: 6px;
+   height: 45px;
+   width: 150px;
+   outline: none;
+}
+
+#filter {
+   color: #9ca0ac;
+}
+
+#filter input {
+   margin-left: 25px;
+} 
+
+#posts {
+   display: flex;
+   flex-direction: row;
+   margin-right: 30px;
+}
+
+#posts div {
+   margin-right: -28px;
+} 
