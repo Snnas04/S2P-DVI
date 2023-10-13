@@ -54,6 +54,15 @@
    font-family: Roboto-medium;
 }
 
+#userName {
+   font-family: Roboto-medium;
+}
+
+#userInfo {
+   color: #9ca0ac;
+   font-size: small;
+}
+
 .options {
    display: flex;
    margin-bottom: 20px;
