@@ -140,6 +140,7 @@
    margin-left: 5px;
    padding-top: 15px;
    padding-bottom: 15px;
+   outline: none;
 }
 
 .line {
@@ -184,6 +185,7 @@ select {
    border-radius: 6px;
    height: 45px;
    width: 150px;
+   outline: none;
 }
 
 #filter {
