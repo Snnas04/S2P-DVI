@@ -1,0 +1,15 @@
+{
+  "name": "testmoduls",
+  "version": "1.0.0",
+  "description": "fer proves amb els moduls",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marc Sans",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^27.0.0"
+  }
+}
