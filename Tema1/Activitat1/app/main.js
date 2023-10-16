@@ -14,6 +14,12 @@ const createWindow = () => {
   Menu.setApplicationMenu(menu)
 
   win.setMenu(menu)
+
+  const wc = win.webContents;
+  console.log(wc)
+  wc.on('before-input-event', (e, k) => {
+      console.log(k.key)
+  })
 }
 
 app.whenReady().then(() => {
