@@ -152,3 +152,7 @@ class Person {
 const person = new Person("Marc Sans", 19, "Male")
 console.log("\nPERSON")
 console.log(person.details)
+
+
+// Activitat 6
+
