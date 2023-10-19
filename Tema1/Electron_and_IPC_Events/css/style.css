@@ -1,12 +1,17 @@
 header,
 footer {
-    height: 100px;
+    height: 10rem;
     background-color: #bae0f7;
+}
+
+article {
+    background-color: #f58426;
+    color: #182e3b;
 }
 
 .container {
     display: flex;
-    height: 300px;
+    height: 30rem;
     background-color: #f58426;
     color: #182e3b;
     align-items: center;
