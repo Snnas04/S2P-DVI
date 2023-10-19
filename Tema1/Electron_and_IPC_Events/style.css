@@ -18,14 +18,13 @@ button {
     color: #182e3b;
 
     border-style: solid;
-
     border-width: 0.3rem;
-
-    border-color: #ee4423;
+    border-color: #274287;
     border-radius: 0.3rem;
+    outline: none;
 
     height: 5rem;
     width: 10rem;
 
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
