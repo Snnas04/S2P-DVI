@@ -1,0 +1,75 @@
+:root {
+    --Wite: #ffffff;
+    --SkyBlue: #bae0f7;
+    --IntelOrange: #f58426;
+    --Corange: #ee4423;
+    --NavyGulf: #182e3b;
+}
+
+main {
+    height: 40rem;
+    background-color: var(--NavyGulf);
+    color: var(--NavyGulf);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    background-color: var(--IntelOrange);
+}  
+
+section {
+    display: flex;
+    background-color: var(--NavyGulf);
+    align-items: center;
+    justify-content: center;
+}
+
+article {
+    display: flex;
+    height: 25rem;
+    width: 20rem;
+    background-color: var(--SkyBlue);
+    border-radius: 1rem;
+    color: var(--color-text);
+    align-items: center;
+    justify-content: center;
+}
+
+#message {
+    width: 8.5rem;
+    height: 2rem;
+
+    max-width: 13rem;
+    max-height: 6.2rem;
+
+    min-width: 8.5rem;
+    min-height: 1rem;
+}
+
+input,
+textarea,
+select {
+    border: 0.15rem solid var(--NavyGulf);
+    border-radius: 0.3rem;
+
+    outline: none;
+
+    background-color: var(--Wite);
+}
+
+select {
+    width: 9.5rem;
+    height: 1.5rem;
+}
+
+input[type="submit"] {
+    border: 0.2rem solid var(--NavyGulf);
+    background-color: var(--IntelOrange);
+    color: var(--Wite);
+    outline: none;
+    font-size: 2rem;
+}
+  
