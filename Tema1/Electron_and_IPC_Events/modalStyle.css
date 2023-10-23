@@ -6,6 +6,21 @@
     --NavyGulf: #182e3b;
 }
 
+@font-face {
+    font-family: 'Poppins';
+    src: url('fonst/Poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins-Medium';
+    src: url('fonst/Poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url('fonst/Poppins/Poppins-Bold.ttf');
+}
+
 main {
     height: 40rem;
     background-color: var(--NavyGulf);
@@ -13,11 +28,15 @@ main {
 }
 
 header {
+    font-family: Poppins-Bold;
+    font-size: 3rem;
+
     display: flex;
     justify-content: center;
     align-items: center;
     height: 5rem;
     background-color: var(--IntelOrange);
+    color: var(--NavyGulf);
 }  
 
 section {
@@ -29,29 +48,36 @@ section {
 
 article {
     display: flex;
-    height: 25rem;
-    width: 20rem;
+    height: 26rem;
+    width: 22rem;
+
     background-color: var(--SkyBlue);
     border-radius: 1rem;
     color: var(--color-text);
+
     align-items: center;
     justify-content: center;
+    
+    margin-top: 12vh;
 }
 
 #message {
-    width: 8.5rem;
-    height: 2rem;
+    width: 13rem;
+    height: 1.1rem;
 
     max-width: 13rem;
-    max-height: 6.2rem;
+    max-height: 4rem;
 
-    min-width: 8.5rem;
-    min-height: 1rem;
+    min-width: 13rem;
+    min-height: 1.1rem;
 }
 
 input,
 textarea,
 select {
+    font-family: Poppins;
+    font-size: 0.8rem;
+
     border: 0.15rem solid var(--NavyGulf);
     border-radius: 0.3rem;
 
@@ -61,15 +87,31 @@ select {
 }
 
 select {
-    width: 9.5rem;
+    width: 14rem;
     height: 1.5rem;
 }
 
 input[type="submit"] {
+    font-family: Poppins-Bold;
+
     border: 0.2rem solid var(--NavyGulf);
     background-color: var(--IntelOrange);
     color: var(--Wite);
     outline: none;
-    font-size: 2rem;
+    font-size: 1.7rem;
+
+    position: relative;
+    left: 50%;
 }
-  
+
+label,
+select {
+    font-family: Poppins-Medium;
+    font-size: 1rem;
+}
+
+.options,
+option {
+    font-family: Poppins;
+    font-size: 1rem;
+}

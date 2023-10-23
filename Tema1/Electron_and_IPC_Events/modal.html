@@ -10,28 +10,28 @@
   <body>
     <main>
       <header>
-        <div>FORM</div>
+        <div>USERS SUBSCRIPTIONS</div>
       </header>
 
       <section>
         <article id="formSection">
-          <form action="form.php" method="post">
-            <label for="options">Select an Option:</label><br>
+          <form id="subscriptionForm" onsubmit="submitForm(); return false;" action="" method="get">
+            <label for="options">Select your subscription:</label><br>
             <input type="radio" id="option1" name="options" value="option1">
-            <label for="option1">Option 1</label>
+            <label class="options" for="option1">Silver</label>
 
             <input type="radio" id="option2" name="options" value="option2">
-            <label for="option2">Option 2</label>
+            <label class="options" for="option2">Gold</label>
 
             <input type="radio" id="option3" name="options" value="option3">
-            <label for="option3">Option 3</label><br><br>
+            <label class="options" for="option3">Diamond</label><br><br>
 
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br><br>
+            <input type="text" id="name" name="name" placeholder="Marc" required><br><br>
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br><br>
+            <input type="email" id="email" name="email" placeholder="mail@domine.com" required><br><br>
             <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone" required><br><br>
+            <input type="tel" id="phone" name="phone" placeholder="666 777 333" required><br><br>
             <label for="gender">Gender:</label>
 
             <select id="gender" name="gender" required>
@@ -43,7 +43,7 @@
             <label for="message">Message:</label>
             <textarea id="message" name="message" required></textarea><br><br>
             
-            <input type="submit" value="Submit">
+            <input id="submitButton" type="submit" value="SUBSCRIBE">
         </article>
       </section>  
     </main>

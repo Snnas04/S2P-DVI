@@ -38,12 +38,21 @@ function createWindow() {
 
       modalWindow.once('ready-to-show', () => {
         modalWindow.show();
+        console.log('form opened');
       });
-
-      modalWindow.on('closed', () => {
-        modalWindow = null;
-      });
+     
     }
+  });
+
+  ipcMain.handle('send-form-data', async (event, formData) => {
+    // Handle the form data, for example, log it to the console.
+
+    console.log('Form data received: ', formData);
+  
+    // You can perform additional processing here if needed.
+  
+    // Return a result to the renderer process.
+    return { message: 'Form data received successfully' };
   });
 }
 

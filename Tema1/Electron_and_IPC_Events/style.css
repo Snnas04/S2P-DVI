@@ -1,50 +1,49 @@
 :root {
-    --Wite: #ffffff;
-    --SkyBlue: #bae0f7;
-    --IntelOrange: #f58426;
-    --Corange: #ee4423;
-    --NavyGulf: #182e3b;
-  }
-  
-  header,
-  footer {
-    height: 10rem;
-    background-color: var(--SkyBlue);
-  }
-  
-  section {
-    background-color: var(--IntelOrange);
-  }
-  
-  article {
-    display: flex;
-    height: 20rem;
-    width: 20rem;
-    background-color: var(--SkyBlue);
-    color: var(--color-text);
-    align-items: center;
-    justify-content: center;
-  }
-  
-  main {
-    display: flex;
-    height: 40rem;
-    background-color: var(--IntelOrange);
-    color: var(--color-text);
-    align-items: center;
-    justify-content: center;
-  }
-  
-  button {
-    background-color: var(--IntelOrange);
-    color: var(--color-text);
-    border-style: none;
-    outline: none;
-    font-size: 2rem;
-  }
-  
-  #gulfLogo {
-    height: 20rem;
-    width: 22rem;
-  }
-  
+  --Wite: #ffffff;
+  --SkyBlue: #bae0f7;
+  --IntelOrange: #f58426;
+  --Corange: #ee4423;
+  --NavyGulf: #182e3b;
+}
+
+header,
+footer {
+  height: 10rem;
+  background-color: var(--SkyBlue);
+}
+
+section {
+  background-color: var(--IntelOrange);
+}
+
+article {
+  display: flex;
+  height: 20rem;
+  width: 20rem;
+  background-color: var(--SkyBlue);
+  color: var(--NavyGulf);
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  height: 40rem;
+  background-color: var(--IntelOrange);
+  color: var(--NavyGulf);
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  background-color: var(--IntelOrange);
+  color: var(--NavyGulf);
+  border-style: none;
+  outline: none;
+  font-size: 2rem;
+}
+
+#gulfLogo {
+  height: 20rem;
+  width: 22rem;
+}
