@@ -5,7 +5,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
     ipcRenderer.send('open-modal');
   },
 
-  submitForm: (formData) => {
-    ipcRenderer.send('send-form-data', formData);
-  },
+  formSubmit: (formData) => {
+    ipcRenderer.send('form-submit', formData);
+  }
 });
