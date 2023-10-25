@@ -12,4 +12,22 @@ document.addEventListener('DOMContentLoaded', () => {
       // Send the form data to the main process
       window.electronAPI.sendFormData(formObject);
   });
+
+  const profilesFunction = function () {
+    const idUser = document.getElementById('userId').value;
+
+    if (idUser) {
+        fetch('https://jsonplaceholder.typicode.com/users/${idUser}')
+          .then((response) => response.json())
+          .then((json) => console.log(json))
+          .catch((error) => {
+              console.error("Error al obtener datos de la API:", error);
+          });
+    } else {
+        // Limpiar los campos del formulario si no se selecciona un ID
+        nameInput.value = "";
+    }
+}
+
+  window.electronAPI.profilesFunction = profilesFunction;
 })

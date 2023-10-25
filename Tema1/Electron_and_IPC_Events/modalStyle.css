@@ -48,7 +48,7 @@ section {
 
 article {
     display: flex;
-    height: 26rem;
+    height: 28rem;
     width: 22rem;
 
     background-color: var(--SkyBlue);
@@ -58,7 +58,7 @@ article {
     align-items: center;
     justify-content: center;
     
-    margin-top: 12vh;
+    margin-top: 10vh;
 }
 
 #message {
@@ -114,4 +114,9 @@ select {
 option {
     font-family: Poppins;
     font-size: 1rem;
+}
+
+.disable {
+    font-size: 0.8rem;
+    color: #686868;
 }

@@ -26,22 +26,38 @@
             <input type="radio" id="diamond-subscription" name="options" value="diamond-subscription">
             <label class="options" for="diamond-subscription">Diamond</label><br><br>
 
+            <label for="userIdLable">User ID:</label>
+            <select id="userId" name="userId" required>
+              <option class="disable" value="">Select an Option</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select><br><br>
+
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" placeholder="Marc" required><br><br>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="mail@domine.com" required><br><br>
             <label for="phone">Phone:</label>
             <input type="tel" id="phone" name="phone" placeholder="666 777 333" required><br><br>
-            <label for="gender">Gender:</label>
 
+            <label for="gender">Gender:</label>
             <select id="gender" name="gender" required>
+              <option class="disable" value="">Select an Option</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="other">Other</option>
             </select><br><br>
 
             <label for="message">Description:</label>
-            <textarea id="message" name="message" required></textarea><br><br>
+            <textarea id="message" name="message"></textarea><br><br>
             
             <input id="submitButton" type="submit" value="SUBSCRIBE">
           </article>
