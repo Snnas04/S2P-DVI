@@ -21,6 +21,12 @@ function createWindow() {
 
   mainWindow.loadFile('index.html');
 
+  ipcMain.on('form-submit', (event, formData) => {
+    console.log(formData)
+
+    event.sender.send('form-data', formData)
+  })
+
   ipcMain.on('open-modal', () => {
     if (!modalWindow) {
       modalWindow = new BrowserWindow({
@@ -41,12 +47,6 @@ function createWindow() {
         console.log('Form opened');
       });
     }
-  });
-
-  ipcMain.on('form-submit', (_event, formData) => {
-    console.log(formData);
-    modalWindow.close();
-    modalWindow = null;
   });
 }
 
