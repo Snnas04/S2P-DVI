@@ -1,14 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const submitButton = document.getElementById('submitButton')
+  document.getElementById('subscriptionForm').addEventListener('submit', (event) => {
+      event.preventDefault();
 
-  submitButton.addEventListener('click', async () => {
-    try {
-      const { ipcRenderer } = require('electron')
-      await ipcRenderer.invoke('form-submit', { name, email, phone, gender, message })
-      console.log('Form submitted successfully')
-    } catch (error) {
-      console.error('An error occurred:', error)
-      // Handle the error here
-    }
-  })
+      const form = event.target;
+      const formData = new FormData(form);
+      const formObject = {};
+      formData.forEach((value, key) => {
+          formObject[key] = value;
+      });
+
+      // Send the form data to the main process
+      window.electronAPI.sendFormData(formObject);
+  });
 })

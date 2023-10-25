@@ -9,7 +9,6 @@ function createWindow() {
       preload: path.join(__dirname, 'preload.js'),
       width: 800,
       height: 600,
-      nodeIntegration: true,
     }
   });
 
@@ -21,12 +20,6 @@ function createWindow() {
 
   mainWindow.loadFile('index.html');
 
-  ipcMain.on('form-submit', (event, formData) => {
-    console.log(formData)
-
-    event.sender.send('form-data', formData)
-  })
-
   ipcMain.on('open-modal', () => {
     if (!modalWindow) {
       modalWindow = new BrowserWindow({
@@ -36,11 +29,17 @@ function createWindow() {
         modal: true,
         show: false,
         webPreferences: {
-          nodeIntegration: true,
+          preload: path.join(__dirname, 'preload.js'),
         }
       });
 
       modalWindow.loadFile('modal.html');
+
+      ipcMain.on('form-data', (event, formData) => {
+        console.log(formData);
+        modalWindow.close();
+        modalWindow = null;
+      });
 
       modalWindow.once('ready-to-show', () => {
         modalWindow.show();
