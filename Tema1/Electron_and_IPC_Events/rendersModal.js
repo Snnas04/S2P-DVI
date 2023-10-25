@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.electronAPI.sendFormData(formObject);
   });
 
-  const form = document.getElementById('subscriptionForm');
   const userIdSelect = document.getElementById('userId'); // Cambiado a userId
   const nameInput = document.getElementById('name');
   const emailInput = document.getElementById('email');
