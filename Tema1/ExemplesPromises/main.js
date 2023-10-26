@@ -22,22 +22,30 @@ console.log('End callback')
 
 
 // PROMISES
-function myFunctionPromise() {
-    return new Promise((resolve, reject) => {
+const myPormise = new Promise((resolve, reject) => {
+    try {
         setTimeout(() => {
             resolve('Promise')
-        }, 3000)
-    })
-}
+        }, 4000)
+    } catch (error) {
+        reject(error)
+    }
 
-console.log('Start promise')
+})
 
-myFunctionPromise()
-    .then((result) => {
-        console.log(result)
+myPormise
+    .then((response) => {
+        console.log(response)
     })
     .catch((error) => {
         console.log(error)
     })
+    .then((response) => {
+        console.log(response),
+        (response) => {
+            console.log(response)
+        }
+    })
 
-console.log('End promise')
+// ASYNC AWAIT
+
