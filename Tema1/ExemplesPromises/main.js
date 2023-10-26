@@ -1,14 +1,43 @@
-const { app, BrowserWindow } = require('electron')
-
-const createWindow = () => {
-    const win = new BrowserWindow({
-        width: 800,
-        height: 600
-    })
-
-    win.loadFile('index.html')
+// CALLBACKS
+function myFunctionCallback(parametre) {
+    setTimeout(parametre, 2000)
+    console.log('Start callback')
 }
 
-app.whenReady().then(() => {
-    createWindow()
-})
+function printOnConsole() {
+    console.log('Callback')
+}
+
+myFunctionCallback(printOnConsole)
+
+console.log('Middle')
+
+myFunctionCallback(printOnConsole)
+
+console.log('End callback')
+
+// myFunctionCallback(() => {
+//     console.log('Hello World')
+// })
+
+
+// PROMISES
+function myFunctionPromise() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Promise')
+        }, 3000)
+    })
+}
+
+console.log('Start promise')
+
+myFunctionPromise()
+    .then((result) => {
+        console.log(result)
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+
+console.log('End promise')
