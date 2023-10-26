@@ -1,0 +1,20 @@
+{
+  "name": "ipcexample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "watch": "nodemon --watch ./ --ext js,json,html,css --exec electron ."
+  },
+  "keywords": [],
+  "author": "ipetrus",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^27.0.1",
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "axios": "^1.5.1"
+  }
+}

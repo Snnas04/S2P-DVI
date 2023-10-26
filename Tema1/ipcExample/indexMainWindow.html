@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Electron IPC example</title>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <header class="container-fluid p-5 bg-primary text-white text-center">
+      <h1>Electron IPC Example</h1>
+    </header>
+    <nav></nav>
+    <section class="container">
+      <div class="row">Title: <input id="title" /></div>
+      <div class="row">
+        <!-- If you add onclick here, will have preference over an onclick added using the DOM -->
+        <button id="btn" type="button" onclick="alert('button clicked')">
+          CLICK TO OPEN THE NEW WINDOW
+        </button>
+      </div>
+    </section>
+    <script src="./renderer.js"></script>
+  </body>
+</html>

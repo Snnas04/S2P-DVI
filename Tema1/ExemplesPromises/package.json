@@ -1,0 +1,15 @@
+{
+  "name": "exemplespromises",
+  "version": "1.0.0",
+  "description": "exples de promises",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "marc sans",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^27.0.2"
+  }
+}
