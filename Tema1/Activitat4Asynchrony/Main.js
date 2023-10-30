@@ -53,9 +53,14 @@ myPromise.then((result) => {
 function simulateNetworkRequest() {
   return new Promise((resolve, reject) => {
       try {
-      setTimeout(() => resolve("Data received"), 2000)
-      setTimeout(() => reject("Request failed"), 3000)
-      } catch (error) {
+        // test 1 - al tenir temps de delay diferents, s'imprimeix el primer que arriba (el que te menys delay)
+        setTimeout(() => resolve("Data received"), 2000)
+        setTimeout(() => reject("Request failed"), 3000)
+
+        // test 2 - al tenir el mateix temps de delay, s'imprimeix el primer que arriba (el que esta a dalt)
+        // setTimeout(() => resolve("Data received"), 2000)
+        // setTimeout(() => reject("Request failed"), 2000)
+    } catch (error) {
       reject(error)
       }
   })
