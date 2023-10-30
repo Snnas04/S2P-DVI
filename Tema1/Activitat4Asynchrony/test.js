@@ -1,19 +1,18 @@
-const myPromise = new Promise((resolve) => {
-    setTimeout(() => resolve("First"), 500)
+function simulateNetworkRequest() {
+    return new Promise((resolve, reject) => {
+        try {
+            setTimeout(() => resolve("Data received"), 2000)
+            setTimeout(() => reject("Request failed"), 3000)
+        } catch (error) {
+            reject(error)
+        }
     })
-    .then((result) => {
-        console.log(result)
-        return new Promise((resolve) => {
-            setTimeout(() => resolve("Second"), 500)
-        })
-    })
-    .then((result) => {
-        console.log(result)
-        return new Promise((resolve) => {
-            setTimeout(() => resolve("Third"), 500)
-        })
-    })
+  }
   
-  myPromise.then((result) => {
-    console.log(result)
-  })
+simulateNetworkRequest()
+    .then((result) => {
+        console.log(result)
+    })
+    .catch((error) => {
+        console.log(error)
+    })

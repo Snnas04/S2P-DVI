@@ -111,6 +111,7 @@ function fetchDataAndPrint(url) {
 fetchDataAndPrint('https://jsonplaceholder.typicode.com/posts/1') // Success
 fetchDataAndPrint('https://jsonplaceholder.typasdfsf') // Error
 
+
 // 8 Async-Await Error Handling
 function asyncWithErrorHandling() {
   return await = new Promise((reject) => {
