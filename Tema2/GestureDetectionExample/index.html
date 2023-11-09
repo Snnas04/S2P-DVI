@@ -29,8 +29,8 @@
       height: 100%;
       overflow: hidden;
       font-family: Arial, sans-serif;
-      background-color: #ffffff;
-      color: #333333;
+      background-color: #121416;
+      color: #ffffff;
     }
 
     body {
@@ -216,6 +216,7 @@
       'thumbs_down': '👎',
       'perfect': '👌',
       'rock': '🤘',
+      'hit': '👊',
     }
 
     async function createDetector() {
@@ -260,42 +261,54 @@
 
       // perfect
       const perfectGesture = new fp.GestureDescription('perfect');
-      perfectGesture.addCurl(fp.Finger.Thumb, fp.FingerCurl.NoCurl);
-      perfectGesture.addCurl(fp.Finger.index, fp.FingerCurl.HalfCurl, 0.5);
-      perfectGesture.addCurl(fp.Finger.middle, fp.FingerCurl.NoCurl);
-      perfectGesture.addCurl(fp.Finger.ring, fp.FingerCurl.NoCurl);
-      perfectGesture.addCurl(fp.Finger.pinky, fp.FingerCurl.NoCurl);
+      perfectGesture.addCurl(fp.Finger.Thumb, fp.FingerCurl.NoCurl, 1.0);
+      perfectGesture.addCurl(fp.Finger.index, fp.FingerCurl.HalfCurl, 1.0);
+      perfectGesture.addCurl(fp.Finger.middle, fp.FingerCurl.HalfCurl, 1.0);
+      perfectGesture.addCurl(fp.Finger.ring, fp.FingerCurl.NoCurl, 1.0);
+      perfectGesture.addCurl(fp.Finger.pinky, fp.FingerCurl.NoCurl, 1.0);
 
-      perfectGesture.addDirection(fp.Finger.Thumb, fp.FingerDirection.DiagonalUpLeft, 0.9);
+      perfectGesture.addDirection(fp.Finger.Thumb, fp.FingerDirection.DiagonalUpLeft, 1.0);
+      perfectGesture.addDirection(fp.Finger.index, fp.FingerDirection.DiagonalUpLeft, 1.0);
+      perfectGesture.addDirection(fp.Finger.middle, fp.FingerDirection.DiagonalUpLeft, 1.0);
+      perfectGesture.addDirection(fp.Finger.ring, fp.FingerDirection.DiagonalUpLeft, 1.0);
+      perfectGesture.addDirection(fp.Finger.pinky, fp.FingerDirection.DiagonalUpLeft, 1.0);
+
+      // rock
+      const rockGesture = new fp.GestureDescription('rock');
+      rockGesture.addCurl(fp.Finger.Thumb, fp.FingerCurl.NoCurl, 0.9);
+      rockGesture.addCurl(fp.Finger.index, fp.FingerCurl.NoCurl, 0.9);
+      rockGesture.addCurl(fp.Finger.middle, fp.FingerCurl.FullCurl, 0.9);
+      rockGesture.addCurl(fp.Finger.ring, fp.FingerCurl.FullCurl, 0.9);
+      rockGesture.addCurl(fp.Finger.pinky, fp.FingerCurl.NoCurl, 0.9);
+
+      rockGesture.addDirection(fp.Finger.Thumb, fp.FingerDirection.DiagonalUpLeft, 0.9);
       perfectGesture.addDirection(fp.Finger.index, fp.FingerDirection.DiagonalUpLeft, 0.9);
-      perfectGesture.addDirection(fp.Finger.middle, fp.FingerDirection.DiagonalUpLeft, 0.9);
       perfectGesture.addDirection(fp.Finger.middle, fp.FingerDirection.VerticalUp, 0.9);
       perfectGesture.addDirection(fp.Finger.ring, fp.FingerDirection.VerticalUp, 0.9);
       perfectGesture.addDirection(fp.Finger.pinky, fp.FingerDirection.VerticalUp, 0.9);
 
-      // rock
-      const rockGesture = new fp.GestureDescription('rock');
-      rockGesture.addCurl(fp.Finger.Thumb, fp.FingerCurl.NoCurl);
-      rockGesture.addCurl(fp.Finger.index, fp.FingerCurl.NoCurl);
-      rockGesture.addCurl(fp.Finger.middle, fp.FingerCurl.FullCurl, 1.0);
-      rockGesture.addCurl(fp.Finger.ring, fp.FingerCurl.FullCurl, 1.0);
-      rockGesture.addCurl(fp.Finger.pinky, fp.FingerCurl.NoCurl);
+      // hit
+      const hitGesture = new fp.GestureDescription('hit');
+      hitGesture.addCurl(fp.Finger.Thumb, fp.FingerCurl.NoCurl, 1.0);
+      hitGesture.addCurl(fp.Finger.index, fp.FingerCurl.FullCurl, 1.0);
+      hitGesture.addCurl(fp.Finger.middle, fp.FingerCurl.FullCurl, 1.0);
+      hitGesture.addCurl(fp.Finger.ring, fp.FingerCurl.FullCurl, 1.0);
+      hitGesture.addCurl(fp.Finger.pinky, fp.FingerCurl.FullCurl, 1.0);
 
-      rockGesture.addDirection(fp.Finger.Thumb, fp.FingerDirection.HorizontalLeft, 1.0);
-      perfectGesture.addDirection(fp.Finger.index, fp.FingerDirection.VerticalUp, 1.0);
-      perfectGesture.addDirection(fp.Finger.middle, fp.FingerDirection.VerticalDown, 0.9);
-      perfectGesture.addDirection(fp.Finger.ring, fp.FingerDirection.VerticalDown, 0.9);
-      perfectGesture.addDirection(fp.Finger.pinky, fp.FingerDirection.VerticalUp, 1.0);
-
+      hitGesture.addDirection(fp.Finger.Thumb, fp.FingerDirection.HorizontalLeft, 0.8);
+      hitGesture.addDirection(fp.Finger.index, fp.FingerDirection.HorizontalLeft, 0.8);
+      hitGesture.addDirection(fp.Finger.middle, fp.FingerDirection.HorizontalLeft, 0.8);
+      hitGesture.addDirection(fp.Finger.ring, fp.FingerDirection.HorizontalLeft, 0.8);
+      hitGesture.addDirection(fp.Finger.pinky, fp.FingerDirection.DiagonalDownLeft, 0.8);
 
       // configure gesture estimator
-      // add "✌🏻" and "👍" as sample gestures
       const knownGestures = [
         fp.Gestures.VictoryGesture,
         fp.Gestures.ThumbsUpGesture,
         thumbsDownGesture,
         perfectGesture,
-        rockGesture
+        rockGesture,
+        hitGesture
       ]
       const GE = new fp.GestureEstimator(knownGestures)
       // load handpose model
