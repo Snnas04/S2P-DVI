@@ -1,0 +1,15 @@
+{
+  "name": "nuiact",
+  "version": "1.0.0",
+  "description": "nui electron act",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "marc sans",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^27.0.4"
+  }
+}
