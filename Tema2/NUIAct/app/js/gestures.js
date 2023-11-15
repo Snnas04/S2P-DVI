@@ -17,6 +17,12 @@ const config = {
     'tree': '3',
   }
 
+  const gestureActions = {
+    'one': () => {console.log('one')},
+    'two': () => {console.log('two')},
+    'tree': () => {console.log('tree')},
+  }
+
   async function createDetector() {
     return window.handPoseDetection.createDetector(
       window.handPoseDetection.SupportedModels.MediaPipeHands,
@@ -168,7 +174,7 @@ const config = {
     ctx.beginPath()
     ctx.arc(x, y, r, 0, 2 * Math.PI)
     ctx.fillStyle = color
-    ctx.fill()
+    // ctx.fill()
   }
 
   function updateDebugInfo(data, hand) {
