@@ -12,11 +12,9 @@ const config = {
   }
 
   const gestureStrings = {
-    'thumbs_up': '👍',
-    'victory': '✌🏻',
-    'thumbs_down': '👎',
-    'perfect': '👌',
-    'hit': 'hit',
+    'one': '1',
+    'two': '2',
+    'tree': '3',
   }
 
   async function createDetector() {
@@ -42,58 +40,56 @@ const config = {
       left: document.querySelector("#pose-result-left")
     }
 
-    // myGestures
-    // thumbs down
-    const thumbsDownGesture = new fp.GestureDescription('thumbs_down');
-    thumbsDownGesture.addCurl(fp.Finger.Thumb, fp.FingerCurl.NoCurl);
-    thumbsDownGesture.addCurl(fp.Finger.index, fp.FingerCurl.HalfCurl, 0.5);
-    thumbsDownGesture.addCurl(fp.Finger.middle, fp.FingerCurl.HalfCurl, 0.5);
-    thumbsDownGesture.addCurl(fp.Finger.ring, fp.FingerCurl.HalfCurl, 0.5);
-    thumbsDownGesture.addCurl(fp.Finger.pinky, fp.FingerCurl.HalfCurl, 0.5);
+    // one
+    const one = new fp.GestureDescription('one');
+    one.addCurl(fp.Finger.thumb, fp.FingerCurl.NoCurl);
+    one.addCurl(fp.Finger.index, fp.FingerCurl.NoCurl);
+    for(let finger of [fp.Finger.middle, fp.Finger.ring, fp.Finger.pinky]) {
+      one.addCurl(finger, fp.FingerCurl.FullCurl, 1.0);
+    }
+    for(let finger of [fp.Finger.middle, fp.Finger.ring, fp.Finger.pinky]) {
+      one.addCurl(finger, fp.FingerCurl.HalfCurl, 1.0);
+    }
 
-    thumbsDownGesture.addDirection(fp.Finger.Thumb, fp.FingerDirection.VerticalDown, 1.0);
-    thumbsDownGesture.addDirection(fp.Finger.Thumb, fp.FingerDirection.DiagonalDownRight, 1.0);
-    thumbsDownGesture.addDirection(fp.Finger.Thumb, fp.FingerDirection.DiagonalDownLeft, 1.0);
-    thumbsDownGesture.addDirection(fp.Finger.index, fp.FingerDirection.HorizontalLeft, 1.0);
-    thumbsDownGesture.addDirection(fp.Finger.middle, fp.FingerDirection.HorizontalLeft, 1.0);
-    thumbsDownGesture.addDirection(fp.Finger.ring, fp.FingerDirection.HorizontalLeft, 1.0);
-    thumbsDownGesture.addDirection(fp.Finger.pinky, fp.FingerDirection.HorizontalLeft, 1.0);
 
-    // perfect
-    const perfectGesture = new fp.GestureDescription('perfect');
-    perfectGesture.addCurl(fp.Finger.Thumb, fp.FingerCurl.NoCurl, 1.0);
-    perfectGesture.addCurl(fp.Finger.index, fp.FingerCurl.HalfCurl, 1.0);
-    perfectGesture.addCurl(fp.Finger.middle, fp.FingerCurl.HalfCurl, 1.0);
-    perfectGesture.addCurl(fp.Finger.ring, fp.FingerCurl.NoCurl, 1.0);
-    perfectGesture.addCurl(fp.Finger.pinky, fp.FingerCurl.NoCurl, 1.0);
+    one.addDirection(fp.Finger.index, fp.FingerDirection.DiagonalUpRight, 1.0);
+    one.addDirection(fp.Finger.index, fp.FingerDirection.VerticalUp, 1.0);
+    one.addDirection(fp.Finger.index, fp.FingerDirection.DiagonalUpLeft, 1.0);
 
-    perfectGesture.addDirection(fp.Finger.Thumb, fp.FingerDirection.DiagonalUpLeft, 1.0);
-    perfectGesture.addDirection(fp.Finger.index, fp.FingerDirection.DiagonalUpLeft, 1.0);
-    perfectGesture.addDirection(fp.Finger.middle, fp.FingerDirection.DiagonalUpLeft, 1.0);
-    perfectGesture.addDirection(fp.Finger.ring, fp.FingerDirection.DiagonalUpLeft, 1.0);
-    perfectGesture.addDirection(fp.Finger.pinky, fp.FingerDirection.DiagonalUpLeft, 1.0);
+    // two
+    const two = new fp.GestureDescription('two');
+    two.addCurl(fp.Finger.thumb, fp.FingerCurl.NoCurl, 1.0);
+    two.addCurl(fp.Finger.index, fp.FingerCurl.NoCurl);
+    two.addCurl(fp.Finger.middle, fp.FingerCurl.NoCurl);
+    for(let finger of [fp.Finger.ring, fp.Finger.pinky]) {
+      two.addCurl(finger, fp.FingerCurl.FullCurl, 1.0);
+    }
+    for(let finger of [fp.Finger.ring, fp.Finger.pinky]) {
+      two.addCurl(finger, fp.FingerCurl.HalfCurl, 1.0);
+    }
 
-    // hit
-    const hitGesture = new fp.GestureDescription('hit');
-    hitGesture.addCurl(fp.Finger.Thumb, fp.FingerCurl.NoCurl, 1.0);
-    hitGesture.addCurl(fp.Finger.index, fp.FingerCurl.FullCurl, 1.0);
-    hitGesture.addCurl(fp.Finger.middle, fp.FingerCurl.FullCurl, 1.0);
-    hitGesture.addCurl(fp.Finger.ring, fp.FingerCurl.FullCurl, 1.0);
-    hitGesture.addCurl(fp.Finger.pinky, fp.FingerCurl.FullCurl, 1.0);
+    for(let finger of [fp.Finger.index, fp.Finger.middle]) {
+      two.addDirection(finger, fp.FingerDirection.VerticalUp, 0.8);
+    }
 
-    hitGesture.addDirection(fp.Finger.Thumb, fp.FingerDirection.HorizontalLeft, 0.8);
-    hitGesture.addDirection(fp.Finger.index, fp.FingerDirection.HorizontalLeft, 0.8);
-    hitGesture.addDirection(fp.Finger.middle, fp.FingerDirection.HorizontalLeft, 0.8);
-    hitGesture.addDirection(fp.Finger.ring, fp.FingerDirection.HorizontalLeft, 0.8);
-    hitGesture.addDirection(fp.Finger.pinky, fp.FingerDirection.DiagonalDownLeft, 0.8);
+    // tree
+    const tree = new fp.GestureDescription('tree');
+    tree.addCurl(fp.Finger.thumb, fp.FingerCurl.NoCurl, 1.0);
+    for(let finger of [fp.Finger.index, fp.Finger.middle, fp.Finger.ring]) {
+      tree.addCurl(finger, fp.FingerCurl.NoCurl, 1.0);
+    }
+    tree.addCurl(fp.Finger.pinky, fp.FingerCurl.FullCurl, 1.0);
+    tree.addCurl(fp.Finger.pinky, fp.FingerCurl.HalfCurl, 1.0);
+
+    for(let finger of [fp.Finger.index, fp.Finger.middle, fp.Finger.ring]) {
+      tree.addDirection(finger, fp.FingerDirection.VerticalUp, 0.8);
+    }
 
     // configure gesture estimator
     const knownGestures = [
-      fp.Gestures.VictoryGesture,
-      fp.Gestures.ThumbsUpGesture,
-      thumbsDownGesture,
-      perfectGesture,
-      hitGesture
+      one,
+      two,
+      tree
     ]
     const GE = new fp.GestureEstimator(knownGestures)
     // load handpose model
