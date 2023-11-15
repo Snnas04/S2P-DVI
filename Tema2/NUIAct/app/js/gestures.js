@@ -76,8 +76,6 @@ const config = {
         two.addDirection(finger, fp.FingerDirection.DiagonalUpRight, 1.0);
     }
 
-
-
     // tree
     const tree = new fp.GestureDescription('tree');
 
