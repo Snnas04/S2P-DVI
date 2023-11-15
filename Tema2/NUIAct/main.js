@@ -8,6 +8,8 @@ const createWindow = () => {
         height: 600
     });
 
+    win.setMenu(null);
+
     win.loadFile('index.html');
 
     ipcMain.on('cameraButton-status', (event, arg) => {
