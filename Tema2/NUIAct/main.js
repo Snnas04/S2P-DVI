@@ -12,12 +12,6 @@ const createWindow = () => {
 
     win.loadFile('index.html');
 
-    ipcMain.on('cameraButton-status', (event, arg) => {
-        console.log(arg);
-        // Send a response back to the renderer process
-        event.sender.send('cameraButton-status-response', arg);
-    });
-
     win.webContents.openDevTools();
 
     win.on('closed', () => {
