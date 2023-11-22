@@ -66,3 +66,32 @@ table.summary th {
 #pose-result-left {
   text-align: left;
 }
+
+.tutorial {
+  height: 300px;
+  background-color: #1bacd8;
+
+  border: 6px solid #064380;
+  border-radius: 6px;
+}
+
+.tutorial h1 {
+  color: #064380;
+  text-align: center;
+}
+
+.tutorial img {
+  width: auto;
+  height: 100px;
+}
+
+.tutorial p {
+  color: black;
+  text-align: center;
+}
+
+.hand-options {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}

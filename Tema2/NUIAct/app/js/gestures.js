@@ -1,3 +1,20 @@
+export function gestures() {
+  gestureActions = {
+    'one': () => {
+      var testOne = "one test"
+      return testOne
+    },
+    'two': () => {
+      var testTwo = "two test"
+      return testTwo
+    },
+    'tree': () => {
+      var testTree = "tree test"
+      return testTree
+    },
+  }
+}
+
 const config = {
     video: { width: 640, height: 480, fps: 30 }
   }
@@ -17,10 +34,18 @@ const config = {
     'tree': '3',
   }
 
+  
+
   const gestureActions = {
-    'one': () => {console.log('one')},
-    'two': () => {console.log('two')},
-    'tree': () => {console.log('tree')},
+    'one': () => {
+      console.log('one')
+    },
+    'two': () => {
+      console.log('two')
+    },
+    'tree': () => {
+      console.log('tree')
+    },
   }
 
   async function createDetector() {
@@ -131,7 +156,8 @@ const config = {
           })
           const chosenHand = hand.handedness.toLowerCase()
           resultLayer[chosenHand].innerText = gestureStrings[result.name]
-          updateDebugInfo(est.poseData, chosenHand)
+          // gestureActions[result.name]()
+          // updateDebugInfo(est.poseData, chosenHand)
         }
 
       }
@@ -175,13 +201,13 @@ const config = {
     // ctx.fill()
   }
 
-  function updateDebugInfo(data, hand) {
-    const summaryTable = `#summary-${hand}`
-    for (let fingerIdx in data) {
-      document.querySelector(`${summaryTable} span#curl-${fingerIdx}`).innerHTML = data[fingerIdx][1]
-      document.querySelector(`${summaryTable} span#dir-${fingerIdx}`).innerHTML = data[fingerIdx][2]
-    }
-  }
+  // function updateDebugInfo(data, hand) {
+  //   const summaryTable = `#summary-${hand}`
+  //   for (let fingerIdx in data) {
+  //     document.querySelector(`${summaryTable} span#curl-${fingerIdx}`).innerHTML = data[fingerIdx][1]
+  //     document.querySelector(`${summaryTable} span#dir-${fingerIdx}`).innerHTML = data[fingerIdx][2]
+  //   }
+  // }
 
   window.addEventListener("DOMContentLoaded", () => {
 

@@ -14,6 +14,11 @@ const createWindow = () => {
 
     win.webContents.openDevTools();
 
+    ipcMain.on('openPageOne', () => {
+        win.loadFile('app/windows/pageOne.html');
+        console.log('openPageOne');
+    });
+
     win.on('closed', () => {
         win = null; // Update the existing variable
     });
