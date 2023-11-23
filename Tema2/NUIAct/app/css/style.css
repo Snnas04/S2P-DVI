@@ -9,7 +9,6 @@ body {
   height: 100%;
   overflow: hidden;
   font-family: Arial, sans-serif;
-  background-color: #121416;
   color: #ffffff;
 }
 
@@ -57,18 +56,8 @@ table.summary th {
   transform: scaleX(-1);
 }
 
-.pose-result {
-  font-size: 100px;
-  text-align: right;
-  padding: 20px 30px 0 0;
-}
-
-#pose-result-left {
-  text-align: left;
-}
-
 .tutorial {
-  height: 300px;
+  height: 280px;
   background-color: #1bacd8;
 
   border: 6px solid #064380;

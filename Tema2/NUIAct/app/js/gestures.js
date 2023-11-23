@@ -1,20 +1,3 @@
-export function gestures() {
-  gestureActions = {
-    'one': () => {
-      var testOne = "one test"
-      return testOne
-    },
-    'two': () => {
-      var testTwo = "two test"
-      return testTwo
-    },
-    'tree': () => {
-      var testTree = "tree test"
-      return testTree
-    },
-  }
-}
-
 const config = {
     video: { width: 640, height: 480, fps: 30 }
   }
@@ -34,17 +17,18 @@ const config = {
     'tree': '3',
   }
 
-  
-
   const gestureActions = {
     'one': () => {
-      console.log('one')
+      alert("Open extra")
+      window.appComunication.sendGestureResult("one");
     },
     'two': () => {
-      console.log('two')
+      alert("Change theme")
+      window.appComunication.sendGestureResult("two");
     },
     'tree': () => {
-      console.log('tree')
+      alert("Close app")
+      window.appComunication.sendGestureResult("tree");
     },
   }
 
@@ -155,8 +139,8 @@ const config = {
             return (p.score > c.score) ? p : c
           })
           const chosenHand = hand.handedness.toLowerCase()
-          resultLayer[chosenHand].innerText = gestureStrings[result.name]
-          // gestureActions[result.name]()
+          // resultLayer[chosenHand].innerText = gestureStrings[result.name]
+          gestureActions[result.name]()
           // updateDebugInfo(est.poseData, chosenHand)
         }
 

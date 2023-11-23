@@ -1,0 +1,15 @@
+.content {
+    font-family: Arial, sans-serif;
+}
+
+button {
+    background-color: #4CAF50;
+    border: 6px solid #166319;
+    border-radius: 6px;
+    color: #166319;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
