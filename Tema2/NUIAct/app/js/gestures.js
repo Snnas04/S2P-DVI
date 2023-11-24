@@ -11,29 +11,23 @@ const config = {
     wrist: 'white'
   }
 
-  const gestureStrings = {
-    'one': '1',
-    'two': '2',
-    'tree': '3',
-    'openHand': 'OH',
-  }
-
+  // Send gesture result to main process
   const gestureActions = {
     'one': () => {
       alert("Open extra")
-      window.appComunication.sendGestureResult("one");
+      window.appMessages.sendGestureResult("one");
     },
     'two': () => {
       alert("Change theme")
-      window.appComunication.sendGestureResult("two");
+      window.appMessages.sendGestureResult("two");
     },
     'tree': () => {
       alert("Close app")
-      window.appComunication.sendGestureResult("tree");
+      window.appMessages.sendGestureResult("tree");
     },
-    'openHand': () => {
+    'hand': () => {
       alert("devTools")
-      window.appComunication.sendGestureResult("openHand");
+      window.appMessages.sendGestureResult("hand");
     },
   }
 
@@ -60,6 +54,9 @@ const config = {
       left: document.querySelector("#pose-result-left")
     }
 
+    /**********************
+    * define the gestures *
+    **********************/
     // one
     const one = new fp.GestureDescription('one');
 
@@ -105,12 +102,19 @@ const config = {
         tree.addDirection(finger, fp.FingerDirection.DiagonalUpRight, 1.0);
     }
 
-    // open hand
-    const openHand = new fp.GestureDescription('openHand');
+    // hand
+    const hand = new fp.GestureDescription('hand');
 
-    for (let finger of [fp.Finger.Thumb, fp.Finger.index, fp.Finger.middle, fp.Finger.ring, fp.Finger.Pinky]) {
-        openHand.addCurl(finger, fp.FingerCurl.FullCurl, 1.0);
-        openHand.addCurl(finger, fp.FingerCurl.HalfCurl, 1.0);
+    for (let finger of [fp.Finger.Thumb,fp.Finger.Ring]) {
+        hand.addCurl(finger, fp.FingerCurl.FullCurl, 1.0);
+        hand.addCurl(finger, fp.FingerCurl.HalfCurl, 1.0);
+    }
+
+    for (let finger of [fp.Finger.index, fp.Finger.middle,fp.Finger.Pinky]) {
+        hand.addCurl(finger, fp.FingerCurl.NoCurl, 1.0);
+        hand.addDirection(finger, fp.FingerDirection.VerticalUp, 1.0);
+        hand.addDirection(finger, fp.FingerDirection.DiagonalUpLeft, 1.0);
+        hand.addDirection(finger, fp.FingerDirection.DiagonalUpRight, 1.0);
     }
 
 
@@ -119,8 +123,9 @@ const config = {
       one,
       two,
       tree,
-      openHand,
+      hand,
     ]
+
     const GE = new fp.GestureEstimator(knownGestures)
     // load handpose model
     const detector = await createDetector()
@@ -197,16 +202,9 @@ const config = {
     ctx.beginPath()
     ctx.arc(x, y, r, 0, 2 * Math.PI)
     ctx.fillStyle = color
+    // remove fill (the dots will be invisible, but still readable for pose estimation)
     // ctx.fill()
   }
-
-  // function updateDebugInfo(data, hand) {
-  //   const summaryTable = `#summary-${hand}`
-  //   for (let fingerIdx in data) {
-  //     document.querySelector(`${summaryTable} span#curl-${fingerIdx}`).innerHTML = data[fingerIdx][1]
-  //     document.querySelector(`${summaryTable} span#dir-${fingerIdx}`).innerHTML = data[fingerIdx][2]
-  //   }
-  // }
 
   window.addEventListener("DOMContentLoaded", () => {
 

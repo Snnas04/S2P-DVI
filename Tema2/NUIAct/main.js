@@ -11,21 +11,27 @@ const createWindow = () => {
         }
     });
 
-    win.setBackgroundColor('#F5F5F5');
 
+    // Set the background and save it in a variable
+    win.setBackgroundColor('#F5F5F5');
     var theme = win.getBackgroundColor();
 
+    // Hide the menu bar
     win.setMenu(null);
 
     win.loadFile('index.html');
 
-    win.webContents.openDevTools();
+    // win.webContents.openDevTools();
 
+    /****************************************
+    * Receive message from renderer process *
+    ****************************************/
+    // load the main window
     ipcMain.on('goBack', () => {
         win.loadFile('index.html');
     });
 
-
+    // One action for each gesture
     ipcMain.on('sendGestureResult', (event, gestureType) => {
         switch (gestureType) {
             case 'one':
@@ -37,8 +43,8 @@ const createWindow = () => {
             case 'tree':
                 win.close();
                 break;
-            case 'openHand':
-                win.webContents.openDevTools();
+            case 'hand':
+                changeDevTools();
                 break;
         }
     });
@@ -51,6 +57,15 @@ const createWindow = () => {
         else if (theme == '#121416'){
             win.setBackgroundColor('#F5F5F5');
             theme = '#F5F5F5';
+        }
+    }
+
+    const changeDevTools = () => {
+        if (win.webContents.isDevToolsOpened()){
+            win.webContents.closeDevTools();
+        }
+        else {
+            win.webContents.openDevTools();
         }
     }
 

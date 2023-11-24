@@ -1,15 +1,32 @@
 .content {
     font-family: Arial, sans-serif;
+    font-weight: bolder;
+    background-color: #38b000;
+    border: 6px solid #006400;
+    border-radius: 6px;
+    color: #006400;
+    width: 400px;
+    height: 150px;
+    margin: auto;
+    padding: 10px 20px;
+    text-align: center;
 }
 
 button {
-    background-color: #4CAF50;
-    border: 6px solid #166319;
+    background-color: #9ef01a;
+    border: 6px solid #70e000;
     border-radius: 6px;
-    color: #166319;
+    color: black;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #ccff33;
+    border: 6px solid #9ef01a;
+    border-radius: 6px;
 }
