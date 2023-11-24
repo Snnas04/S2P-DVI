@@ -49,6 +49,20 @@ const createWindow = () => {
         }
     });
 
+    ipcMain.on('sendVoiceResult', (event, voiceType) => {
+        switch (voiceType) {
+            case 'hola':
+                win.loadFile('index.html');
+                break;
+            case 'tema':
+                changeTheme();
+                break;
+            case 'adeu':
+                win.close();
+                break;
+        }
+    });
+
     const changeTheme = () => {
         if (theme == '#F5F5F5'){
             win.setBackgroundColor('#121416');

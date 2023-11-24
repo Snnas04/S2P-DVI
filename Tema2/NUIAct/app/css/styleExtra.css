@@ -12,6 +12,12 @@
     text-align: center;
 }
 
+div {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: #70e000;
+}
+
 button {
     background-color: #9ef01a;
     border: 6px solid #70e000;
