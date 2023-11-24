@@ -15,6 +15,7 @@ const config = {
     'one': '1',
     'two': '2',
     'tree': '3',
+    'openHand': 'OH',
   }
 
   const gestureActions = {
@@ -29,6 +30,10 @@ const config = {
     'tree': () => {
       alert("Close app")
       window.appComunication.sendGestureResult("tree");
+    },
+    'openHand': () => {
+      alert("devTools")
+      window.appComunication.sendGestureResult("openHand");
     },
   }
 
@@ -100,11 +105,21 @@ const config = {
         tree.addDirection(finger, fp.FingerDirection.DiagonalUpRight, 1.0);
     }
 
+    // open hand
+    const openHand = new fp.GestureDescription('openHand');
+
+    for (let finger of [fp.Finger.Thumb, fp.Finger.index, fp.Finger.middle, fp.Finger.ring, fp.Finger.Pinky]) {
+        openHand.addCurl(finger, fp.FingerCurl.FullCurl, 1.0);
+        openHand.addCurl(finger, fp.FingerCurl.HalfCurl, 1.0);
+    }
+
+
     // configure gesture estimator
     const knownGestures = [
       one,
       two,
-      tree
+      tree,
+      openHand,
     ]
     const GE = new fp.GestureEstimator(knownGestures)
     // load handpose model

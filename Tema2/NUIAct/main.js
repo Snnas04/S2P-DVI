@@ -37,6 +37,9 @@ const createWindow = () => {
             case 'tree':
                 win.close();
                 break;
+            case 'openHand':
+                win.webContents.openDevTools();
+                break;
         }
     });
 
