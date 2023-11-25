@@ -5,17 +5,9 @@
     border: 6px solid #006400;
     border-radius: 6px;
     color: #006400;
-    width: 400px;
-    height: 150px;
     margin: auto;
-    padding: 10px 20px;
+    width: 42%;
     text-align: center;
-}
-
-div {
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-    color: #70e000;
 }
 
 button {
@@ -35,4 +27,42 @@ button:hover {
     background-color: #ccff33;
     border: 6px solid #9ef01a;
     border-radius: 6px;
+}
+
+.tutorial {
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    color: #38b000;
+    background-color: #ccff33;
+    border: 6px solid #9ef01a;
+    border-radius: 6px;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+    color: #008000;
+}
+
+#title img {
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    margin-left: 25px;
+    margin-top: 18px;
+}
+
+#label-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #18206f;
 }

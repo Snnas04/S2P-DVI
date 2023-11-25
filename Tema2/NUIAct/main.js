@@ -7,7 +7,7 @@ const createWindow = () => {
         width: 800,
         height: 600,
         webPreferences: {
-            preload: path.join(__dirname, './app/preload.js'),
+            preload: path.join(__dirname, './app/js/preload.js'),
         }
     });
 
@@ -35,7 +35,7 @@ const createWindow = () => {
     ipcMain.on('sendGestureResult', (event, gestureType) => {
         switch (gestureType) {
             case 'one':
-                win.loadFile('./app/windows/pageExtra.html');
+                win.loadFile('./app/html/pageExtra.html');
                 break;
             case 'two':
                 changeTheme();
