@@ -14,7 +14,7 @@ const config = {
   // Send gesture result to main process
   const gestureActions = {
     'one': () => {
-      alert("Open extra")
+      alert("Open audio page")
       window.appMessages.sendGestureResult("one");
     },
     'two': () => {
@@ -159,9 +159,7 @@ const config = {
             return (p.score > c.score) ? p : c
           })
           const chosenHand = hand.handedness.toLowerCase()
-          // resultLayer[chosenHand].innerText = gestureStrings[result.name]
           gestureActions[result.name]()
-          // updateDebugInfo(est.poseData, chosenHand)
         }
 
       }

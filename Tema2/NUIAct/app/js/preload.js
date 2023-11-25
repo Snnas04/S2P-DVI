@@ -6,6 +6,7 @@ contextBridge.exposeInMainWorld('appMessages', {
     sendGestureResult: (gestureType) => {
         ipcRenderer.send('sendGestureResult', gestureType);
     },
+    
     // Send voice result to main process
     sendVoiceResult: (voiceType) => {
         ipcRenderer.send('sendVoiceResult', voiceType);
