@@ -1,17 +1,15 @@
-let link = "pages/extra.html";
+import { Link } from 'react-router-dom';
+
+let link = "/extra";
 
 function Button() {
   return (
     <div id="buttonContent">
-        <button id="button" onClick={handleClick}>
-          Open YT
-        </button>
+      <Link to={link}>
+        <button id="button">Go to Extra</button>
+      </Link>
     </div>
   )
-}
-
-function handleClick() {
-  window.appMessage.sendOpenLink(link);
 }
 
 export default Button;

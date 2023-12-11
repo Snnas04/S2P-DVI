@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Extra</title>
-</head>
-<body>
+function pageExtra() {
+  return (
     <div>
         <h1>Page Extra</h1>
+        <img src="./public/logo512.png" className="App-logo" alt="logo" />
         <p> 
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tortor elit, hendrerit vitae ultrices quis, gravida sit amet justo. Nam elit ante, accumsan 
             in luctus mollis, fermentum ut est. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dignissim suscipit mauris, nec accumsan nunc hendrerit 
@@ -16,5 +11,7 @@
             rhoncus lacus laoreet erat sodales tincidunt. 
         </p>
     </div>
-</body>
-</html>
+  )
+}
+
+export default pageExtra;
