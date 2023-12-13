@@ -22,9 +22,8 @@ function API() {
     <div id="apiContent">
       {data ? (
         <div>
-          <h2>Data from API:</h2>
           <ul>
-            {data.map((item) => (
+            {data.slice(0, 5).map((item) => (
               <li key={item.id}>{item.title}</li>
             ))}
           </ul>

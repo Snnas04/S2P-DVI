@@ -1,6 +1,6 @@
 const path = require('path');
 
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const isDev = require('electron-is-dev');
 
 function createWindow() {
@@ -10,6 +10,7 @@ function createWindow() {
     height: 600,
     webPreferences: {
       // nodeIntegration: true,
+      preload: path.join(__dirname, 'preload.js'),
     },
   });
 
@@ -25,6 +26,10 @@ function createWindow() {
     // win.webContents.openDevTools({ mode: 'detach' });
     win.webContents.openDevTools();
   }
+
+  ipcMain.on('consoleMessage', (event, message) => {
+    console.log(message);
+  });
 }
 
 // This method will be called when Electron has finished

@@ -1,18 +1,10 @@
-import React, { useState } from 'react';
-import API from './api';
+import React from 'react';
 
-function ButtonAPI() {
-  const [showAPI, setShowAPI] = useState(false);
-
-  const toggleAPI = () => {
-    setShowAPI(!showAPI);
-  };
-
+function ButtonAPI({ toggleAPI }) {
   return (
     <div id="apiButtonContent">
-      {showAPI ? <API /> : null}
       <button id="apiButton" onClick={toggleAPI}>
-        {showAPI ? 'Hide API' : 'Show API'}
+        Toggle API
       </button>
     </div>
   );
