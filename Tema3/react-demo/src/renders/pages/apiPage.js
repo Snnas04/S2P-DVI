@@ -37,7 +37,7 @@ function APIExtra() {
                   <b>Price: </b>{objeto.price} €
                   </div>
                   <div>
-                  <b>Rating</b>{starValor(objeto.stars)}
+                  <b>Rating</b>{starRating(objeto.stars)}
                   </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@ function APIExtra() {
   );
 }
 
-function starValor(numStars) {
+function starRating(numStars) {
   numStars = (numStars / 2);
 
   return (

@@ -1,4 +1,4 @@
-# ACTIVITI RESOURCES
+# ACTIVITy RESOURCES
 ## Rating statrs
 Here is the documentation: [https://www.npmjs.com/package/react-rating-stars-component](https://www.npmjs.com/package/react-rating-stars-component)
 
