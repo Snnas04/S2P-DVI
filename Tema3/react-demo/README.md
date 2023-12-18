@@ -1,3 +1,12 @@
+# ACTIVITI RESOURCES
+## Rating statrs
+Here is the documentation: [https://www.npmjs.com/package/react-rating-stars-component](https://www.npmjs.com/package/react-rating-stars-component)
+
+## APIs
+API from API Page[https://api-tenda-7058f-default-rtdb.europe-west1.firebasedatabase.app/products.json](https://api-tenda-7058f-default-rtdb.europe-west1.firebasedatabase.app/products.json)
+
+API form Home Page [https://jsonplaceholder.typicode.com/posts](https://jsonplaceholder.typicode.com/posts)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

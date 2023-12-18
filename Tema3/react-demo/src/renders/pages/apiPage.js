@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactStars from "react-rating-stars-component";
 import axios from 'axios';
 import './apiPage.css';
 
@@ -36,7 +37,7 @@ function APIExtra() {
                   <b>Price: </b>{objeto.price} €
                   </div>
                   <div>
-                  <b>Rating: </b>{objeto.stars}
+                  <b>Rating</b>{starValor(objeto.stars)}
                   </div>
                 </div>
             </div>
@@ -49,13 +50,19 @@ function APIExtra() {
   );
 }
 
-function starValor() {
-  <ReactStars
-  count={5}
-  onChange={ratingChanged}
-  size={24}
-  activeColor="#ffd700"
-/>
+function starValor(numStars) {
+  numStars = (numStars / 2);
+
+  return (
+    <ReactStars
+      count={5}
+      size={24}
+      value={numStars}
+      activeColor="#ffd700"
+      edit={false} // Desectiva l'opcio d'editar la valoracio
+      isHalf={true} // Permet valoracions amb mitja estrella, he activat aquesta opcio perque el raiting va de 0 a 10 i m'ha semblat mes correcte
+    />  
+  )
 }
 
 

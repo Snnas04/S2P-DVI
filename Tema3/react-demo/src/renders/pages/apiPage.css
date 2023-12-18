@@ -22,3 +22,10 @@ img {
 
     border-bottom: 4px solid #005fcc;
 }
+
+.caracteristics {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 10px;
+}
