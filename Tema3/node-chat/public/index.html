@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markitos Chat</title>
+</head>
+<body>
+  <h1>Markitos Chat</h1>
+  <div id="messages"></div>
+  <form id="form">
+    <input id="input" autocomplete="off" autofocus />
+    <button>Send</button>
+  </form>
+  
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    // Pedir al usuario que ingrese su nombre al conectarse
+    const username = prompt('Please enter your name');
+    socket.emit('set username', username);
+
+    socket.on('user connected', (username) => {
+      const item = document.createElement('li');
+      item.textContent = `${username}`;
+      messages.appendChild(item);
+    });
+
+    socket.on('user disconnected', (username) => {
+      const item = document.createElement('li');
+      item.textContent = `${username}`;
+      messages.appendChild(item);
+    });
+
+    const messages = document.getElementById('messages');
+    const form = document.getElementById('form');
+    const input = document.getElementById('input');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (input.value) {
+        socket.emit('chat message', `${input.value}`);
+        input.value = '';
+      }
+    });
+
+    socket.on('chat message', (msg) => {
+      const item = document.createElement('li');
+      item.textContent = msg;
+      messages.appendChild(item);
+      window.scrollTo(0, document.body.scrollHeight);
+    });
+  </script>
+</body>
+</html>
