@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link 
+    rel="stylesheet"
+    href="./index.css"/>
   <title>Markitos Chat</title>
 </head>
 <body>
@@ -24,14 +27,17 @@
     socket.on('user connected', (username) => {
       const item = document.createElement('li');
       item.textContent = `${username}`;
+      item.classList.add('user-connected'); // Agregar clase para estilo específico
       messages.appendChild(item);
     });
 
     socket.on('user disconnected', (username) => {
       const item = document.createElement('li');
       item.textContent = `${username}`;
+      item.classList.add('user-disconnected'); // Agregar clase para estilo específico
       messages.appendChild(item);
     });
+
 
     const messages = document.getElementById('messages');
     const form = document.getElementById('form');
