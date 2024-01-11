@@ -1,0 +1,28 @@
+#messages {
+    display: flex;
+    flex-direction: row;
+
+    width: 400px;
+    padding: 20px;
+    margin: 20px;
+
+    background-color: #1e1e1e;
+    border-radius: 10px;
+}
+
+
+#form {
+    display: flex;
+    flex-direction: row;
+
+    width: 400px;
+    padding: 20px;
+    margin: 20px;
+
+    background-color: #1e1e1e;
+    border-radius: 10px;
+}
+
+li {
+    list-style: none;
+}
