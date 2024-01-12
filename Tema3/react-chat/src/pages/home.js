@@ -11,8 +11,8 @@ function Home() {
   return (
     <div id="home-content">
       <div id="header">
-        <h1 id='header-left'>Contacts</h1>
-        <h1 id='header-right'>Markitos Chat</h1>
+        <button className='menuBtn' id='header-left'>BlueChat</button>
+        <button className='menuBtn' id='header-right'>Settings</button>
       </div>
 
       <div id="mid">

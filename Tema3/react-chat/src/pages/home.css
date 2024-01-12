@@ -10,12 +10,31 @@ body {
     align-items: center;
 }
 
-h1 {
+.menuBtn {
+    list-style: none;
     font-size: 32pt;
+
     background-color: #6169d6;
+    
     padding: 10px;
+
+    border: 4px solid #3f46af;
     border-radius: 10px;
 }
+
+.menuBtn:hover {
+    list-style: none;
+    font-size: 32pt;
+
+    background-color: #5960c4;
+    color: #eeeeee;
+
+    padding: 10px;
+
+    border: 4px solid #3f46af;
+    border-radius: 10px;
+}
+
 
 #home-content {
     display: flex;
@@ -79,6 +98,19 @@ button {
     font-weight: bold;
     font-size: 12pt;
     background-color: #6169d6;
+    border: 2px solid #3f46af;
+    border-radius: 10px;
+}
+
+button:hover {
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    display: block;
+    font-weight: bold;
+    font-size: 12pt;
+    background-color: #5960c4;
+    color: #eeeeee;
     border: 2px solid #3f46af;
     border-radius: 10px;
 }
