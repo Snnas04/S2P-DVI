@@ -1,8 +1,12 @@
+import React from 'react';
+
+import './chat.css'
+
 function Users() {
     return (
-        <div id="users">
+        <div className='chat-content' id="users">
             <h2>Users</h2>
-            <ul id="users-list"></ul>
+            <ul id="users-list">joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/>joan<br/></ul>
         </div>
     );
 }

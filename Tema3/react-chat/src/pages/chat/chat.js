@@ -1,14 +1,13 @@
 import React from 'react';
 
-
 import './chat.css'
 
 function Chat() {
     return (
         <div id="chat-content">
-            <div id="messages">test</div>
+            <div className='chat-content' id="messages">message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/>message test<br/></div>
 
-            <form id="form">
+            <form id="textbar">
                 <input id="input" autoComplete="off" autoFocus />
                 <button>Send</button>
             </form>
