@@ -6,7 +6,7 @@ function Users() {
     return (
         <div className='chat-content' id="users">
             <h2>Users</h2>
-            <ul id="users-list">user<br/></ul>
+            <ul id="users-list">user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/>user<br/></ul>
         </div>
     );
 }

@@ -24,7 +24,7 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 // Realiza una consulta a un nodo específico (reemplaza 'nombre-nodo' con el nombre real de tu nodo)
-const dataRef = ref(db, 'ppi');
+const dataRef = ref(db, 'chatUsers');
 const dataSnapshot = await get(dataRef);
 
 // Imprime los datos en la consola
