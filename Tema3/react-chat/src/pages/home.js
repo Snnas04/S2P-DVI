@@ -2,8 +2,7 @@ import React from 'react';
 
 import Chat from './chat/chat';
 import Users from './chat/users';
-
-// import Config from './config/config';
+import Config from './config/config';
 
 import './home.css';
 
@@ -23,7 +22,10 @@ function Home() {
         <div id="chat">
           <Chat />
         </div>
-        {/* <Config /> */}
+
+        <div>
+          <Config />
+        </div>
       </div>
 
       <script src="/socket.io/socket.io.js"></script>
