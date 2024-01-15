@@ -1,5 +1,18 @@
 {
   "dependencies": {
+    "firebase": "^10.7.1",
     "react-rating-stars-component": "^2.2.0"
-  }
+  },
+  "name": "tema3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
