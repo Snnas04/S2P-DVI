@@ -113,6 +113,8 @@ button:hover {
     color: #eeeeee;
     border: 2px solid #3f46af;
     border-radius: 10px;
+
+    cursor: pointer;
 }
 
 .user-connected,

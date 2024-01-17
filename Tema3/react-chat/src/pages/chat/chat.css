@@ -67,6 +67,10 @@ li {
     align-items: center;
 }
 
+li {
+    margin: 20px;
+}
+
 ul {
     padding: 0;
 }

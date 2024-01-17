@@ -1,8 +1,5 @@
-import React from 'react';
-
-import './chat.css'
-
-import { initializeApp } from "firebase/app";
+import React, { useState, useEffect } from 'react';
+import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, get } from 'firebase/database';
 
 const firebaseConfig = {
@@ -10,24 +7,43 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
-// Obtiene una instancia de la Realtime Database
 const db = getDatabase(app);
 
-// Realiza una consulta a un nodo específico (reemplaza 'nombre-nodo' con el nombre real de tu nodo)
-const dataRef = ref(db, 'chatUsers');
-const dataSnapshot = await get(dataRef);
-
-// Imprime los datos en la consola
-console.log(dataSnapshot.val());
-
 function Users() {
+    const [usersData, setUsersData] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const dataRef = ref(db, 'chatUsers');
+                const dataSnapshot = await get(dataRef);
+                setUsersData(dataSnapshot.val());
+            } catch (error) {
+                console.error('Error fetching data from Firebase:', error);
+                setUsersData(null);
+            }
+        };
+
+        fetchData();
+    }, []);
+
     return (
         <div className='chat-content' id="users">
-            <h2>Users</h2>
-            <ul id="users-list">
-                
-            </ul>
+            {usersData ? (
+                <div>
+                    <h2>Users</h2>
+                    <ul id="users-list">
+                        {Object.values(usersData).map((userData, index) => (
+                            <li key={userData.username}>
+                                {userData.ip}
+                            </li>
+                            // Ajusta 'username' según la estructura de tus datos en Firebase
+                        ))}
+                    </ul>
+                </div>
+            ) : (
+                <p>Loading data...</p>
+            )}
         </div>
     );
 }
