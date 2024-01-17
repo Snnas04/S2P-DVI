@@ -45,6 +45,15 @@ function Home() {
             <Config />
           </div>
         )}
+
+        {/* Mostrar 'test' cuando ni 'BlueChat' ni 'Config' están seleccionados */}
+        {activeComponent !== 'BlueChat' && activeComponent !== 'Config' && (
+          <div>
+            <h1>Welcome to BlueChat</h1>
+            <p>Click on the buttons above to get started</p>
+            <img src="https://play-lh.googleusercontent.com/ahJtMe0vfOlAu1XJVQ6rcaGrQBgtrEZQefHy7SXB7jpijKhu1Kkox90XDuH8RmcBOXNn" alt="BlueChat logo" />
+          </div>
+        )}
       </div>
 
       <script src="/socket.io/socket.io.js"></script>

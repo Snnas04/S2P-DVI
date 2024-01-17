@@ -1,7 +1,3 @@
-import React from 'react';
-
-import './chat.css'
-
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get } from 'firebase/database';
 
@@ -20,16 +16,3 @@ const dataSnapshot = await get(dataRef);
 
 // Imprime los datos en la consola
 console.log(dataSnapshot.val());
-
-function Users() {
-    return (
-        <div className='chat-content' id="users">
-            <h2>Users</h2>
-            <ul id="users-list">
-                
-            </ul>
-        </div>
-    );
-}
-
-export default Users;
