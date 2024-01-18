@@ -35,9 +35,9 @@ function Users() {
                 <div>
                     <h2>Users</h2>
                     <ul id="users-list">
-                        {Object.values(usersData).map((userData, index) => (
+                        {Object.values(usersData).map((userData, index, key) => (
                             <li key={index}>
-                                {userData.ip}
+                                {index} - {userData.ip}
                             </li>
                         ))}
                     </ul>
