@@ -7,13 +7,13 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-function writeUserData(userId, ip, lastConTime, status) {
+function writeUserData(userId, ip, lastConnectionTime, status) {
   const db = getDatabase(app);
   set(ref(db, 'chatUsers/' + userId), {
     ip: ip,
-    lastConTime: lastConTime,
+    lastConnectionTime: lastConnectionTime,
     status: status
   });
 }
 
-writeUserData('marcsans', '192.168.48.115', '{ date: \'2024/01/17\', time: \'16:00:00\' }', true)
+writeUserData('marcsans', '192.168.48.115', {date: "2024/01/18", time: "18:30:00"}, true)

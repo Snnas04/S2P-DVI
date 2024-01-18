@@ -27,14 +27,16 @@ function Users() {
         fetchData();
     }, []);
 
+    console.log(usersData);
+
     return (
         <div className='chat-content' id="users">
             {usersData ? (
                 <div>
                     <h2>Users</h2>
                     <ul id="users-list">
-                        {Object.values(usersData).map((userData) => (
-                            <li key={userData.username}>
+                        {Object.values(usersData).map((userData, index) => (
+                            <li key={index}>
                                 {userData.ip}
                             </li>
                         ))}
