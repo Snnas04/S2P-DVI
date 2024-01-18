@@ -33,11 +33,10 @@ function Users() {
                 <div>
                     <h2>Users</h2>
                     <ul id="users-list">
-                        {Object.values(usersData).map((userData, index) => (
+                        {Object.values(usersData).map((userData) => (
                             <li key={userData.username}>
                                 {userData.ip}
                             </li>
-                            // Ajusta 'username' según la estructura de tus datos en Firebase
                         ))}
                     </ul>
                 </div>

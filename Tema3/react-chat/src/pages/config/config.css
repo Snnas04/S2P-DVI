@@ -22,11 +22,9 @@ input {
 }
 
 button {
-    padding-left: 20px;
-    padding-right: 20px;
-}
+    padding-top: 5px;
+    padding-bottom: 5px;
 
-button:hover {
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -34,6 +32,7 @@ button:hover {
 select {
     appearance: none;
     font-size: 14pt;
+    font-weight: bold;
 
     color: #eeeeee;
     background-color: #6169d6;
@@ -41,6 +40,8 @@ select {
     border: none;
     border-radius: 10px;
 
+    padding-top: 5px;
+    padding-bottom: 5px;
     padding-left: 20px;
     padding-right: 20px;
 }

@@ -24,10 +24,10 @@ function Config() {
 
             <h3>Set status</h3>
             <div className="set-info">
-                <label htmlFor="status-selector">Select Status: </label>
+                <label htmlFor="status-selector">Select Your Status: </label>
                 <select id="status-selector">
-                    <option value="online">Online</option>
-                    <option value="offline">Offline</option>
+                    <option value="online">ONLINE</option>
+                    <option value="offline">OFFLINE</option>
                 </select>
             </div>
         
