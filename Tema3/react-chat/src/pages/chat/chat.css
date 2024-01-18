@@ -31,7 +31,7 @@
 }
 
 .chat-content::-webkit-scrollbar-thumb:hover {
-    background: #494faf; /* Color of the scroll thumb on hover */
+    background: #3f46af; /* Color of the scroll thumb on hover */
 }
 
 /* For Firefox */

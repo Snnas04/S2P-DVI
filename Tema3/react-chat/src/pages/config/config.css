@@ -1,3 +1,65 @@
-#user-button {
-    width: 200px;
+#config-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    padding: 10px;
+
+    background-color: #1e1e1e;
+
+    border-radius: 10px;
+}
+
+.set-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input {
+    flex: 1;
+    font-size: 11pt;
+}
+
+button {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+button:hover {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+select {
+    appearance: none;
+    font-size: 14pt;
+
+    color: #eeeeee;
+    background-color: #6169d6;
+
+    border: none;
+    border-radius: 10px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+select:hover {
+    color: #f0f0f0;
+    background-color: #3f46af;
+}
+
+select:focus {
+    outline: none;
+}
+
+option {
+    color: #eeeeee;
+    background-color: #6169d6;
+}
+
+option:hover {
+    color: #f0f0f0;
+    background-color: #3f46af;
 }
