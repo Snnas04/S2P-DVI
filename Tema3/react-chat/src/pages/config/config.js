@@ -79,7 +79,7 @@ function Config() {
                 </select>
             </div>
 
-            <button onClick={handleSetClick}>Set</button>
+            <button id='sendBtn' onClick={handleSetClick}>Set</button>
         </div>
     );
 }

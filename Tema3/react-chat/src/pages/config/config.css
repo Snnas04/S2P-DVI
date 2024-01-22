@@ -21,7 +21,9 @@ input {
     font-size: 11pt;
 }
 
-button {
+#sendBtn {
+    margin-top: 25px;
+
     padding-top: 5px;
     padding-bottom: 5px;
 

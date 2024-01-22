@@ -97,21 +97,16 @@ input:focus {
 
 button {
     margin-left: auto;
-    padding-right: 15px;
-    padding-left: 15px;
-    display: block;
     font-weight: bold;
     font-size: 12pt;
     background-color: #6169d6;
+    color: #eeeeee;
     border: none;
     border-radius: 10px;
 }
 
 button:hover {
     margin-left: auto;
-    padding-right: 15px;
-    padding-left: 15px;
-    display: block;
     font-weight: bold;
     font-size: 12pt;
     background-color: #3f46af;
@@ -124,10 +119,4 @@ button:hover {
 
 button:focus {
     outline: none;
-}
-
-.user-connected,
-.user-disconnected {
-    font-size: 10pt;
-    color: #888;
 }

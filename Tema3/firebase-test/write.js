@@ -16,4 +16,4 @@ function writeUserData(userId, ip, lastConnectionTime, status) {
   });
 }
 
-writeUserData('marcsans', '192.168.48.115', {date: "2024/01/18", time: "18:30:00"}, true)
+writeUserData('marcsans', '192.168.48.115', {date: "2024/01/18", time: "18:30:00"}, false)
