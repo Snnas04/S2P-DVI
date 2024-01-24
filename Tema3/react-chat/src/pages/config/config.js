@@ -1,24 +1,46 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import { ipcRenderer } from 'electron';
+import writeUserData  from '../../firebase/sendData';
 import './config.css';
 
 function Config() {
+    // Obtener la fecha y hora actuales
+    const currentDate = new Date();
+    const currentDateString = currentDate.toISOString().split('T')[0];
+    const currentTimeString = currentDate.toTimeString().split(' ')[0];
+
     // Estados para almacenar los valores de los inputs y el selector
-    const [userName, setUserName] = useState('');
+    const [userName, setUserName] = useState('marcsans');
     const [ip, setIp] = useState('');
-    const [lastConnectionDate, setLastConnectionDate] = useState('');
-    const [lastConnectionTime, setLastConnectionTime] = useState('');
+    const [lastConnectionDate, setLastConnectionDate] = useState(currentDateString);
+    const [lastConnectionTime, setLastConnectionTime] = useState(currentTimeString);
     const [status, setStatus] = useState('online'); // Valor predeterminado: online
 
-    // Función para manejar el clic en el botón "Set" al final del formulario
+    // Obtener la dirección IP del sistema al cargar el componente
+    useEffect(() => {
+        // Escuchar el evento para obtener la dirección IP desde el proceso principal
+        ipcRenderer.on('send-ip-address', (event, ip) => {
+            setIp(ip);
+        });
+
+        // Solicitar la dirección IP al proceso principal
+        ipcRenderer.send('get-ip-address');
+
+        // Limpiar el evento cuando el componente se desmonta
+        return () => {
+            ipcRenderer.removeAllListeners('send-ip-address');
+        };
+    }, []); // El segundo argumento [] asegura que el efecto se ejecute solo una vez al montar el componente    // Función para manejar el clic en el botón "Set" al final del formulario
+    
     const handleSetClick = () => {
         // Realizar el console log de los datos guardados
         console.log('UserName:', userName);
         console.log('IP:', ip);
         console.log('Last Connection:', `${lastConnectionDate} ${lastConnectionTime}`);
-        console.log('Status:', status);
+        console.log('Status:', status === 'online' ? true : false);
 
-        // Aquí puedes realizar cualquier otra acción con los datos, como enviarlos a un servidor, etc.
+        // Llamar a la función writeUserData con los datos necesarios
+        writeUserData(userName, ip, { date: lastConnectionDate, time: lastConnectionTime }, status === 'online' ? true : false);
     };
 
     return (
