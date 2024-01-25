@@ -95,10 +95,10 @@
 
 .active,
 .active:hover {
-    border: 4px solid #10be00 /* Fondo verde si el estado es true */
+    color: #eeeeee;
 }
 
 .inactive,
 .inactive:hover {
-    color: #b9b9b9; /* Color de texto gris si el estado es false */
+    color: #b9b9b9;
 }

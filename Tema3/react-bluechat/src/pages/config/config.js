@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { ipcRenderer } from 'electron';
+import React, { useState, os } from 'react';
 import writeUserData  from '../../firebase/sendData';
 import './config.css';
 
@@ -16,22 +15,24 @@ function Config() {
     const [lastConnectionTime, setLastConnectionTime] = useState(currentTimeString);
     const [status, setStatus] = useState('online'); // Valor predeterminado: online
 
-    // Obtener la dirección IP del sistema al cargar el componente
-    useEffect(() => {
-        // Escuchar el evento para obtener la dirección IP desde el proceso principal
-        ipcRenderer.on('send-ip-address', (event, ip) => {
-            setIp(ip);
+    // Obtener la dierccion IP
+    const getIPAddress = () => {
+        const networkInterfaces = os.networkInterfaces();
+        const ipAddresses = [];
+
+        Object.keys(networkInterfaces).forEach((key) => {
+            networkInterfaces[key].forEach((iface) => {
+                if (iface.family === 'IPv4' && !iface.internal) {
+                    ipAddresses.push(iface.address);
+                }
+            });
         });
 
-        // Solicitar la dirección IP al proceso principal
-        ipcRenderer.send('get-ip-address');
+        const lastIPAddress = ipAddresses[ipAddresses.length - 1];
+        return lastIPAddress;
+    }
 
-        // Limpiar el evento cuando el componente se desmonta
-        return () => {
-            ipcRenderer.removeAllListeners('send-ip-address');
-        };
-    }, []); // El segundo argumento [] asegura que el efecto se ejecute solo una vez al montar el componente    // Función para manejar el clic en el botón "Set" al final del formulario
-    
+
     const handleSetClick = () => {
         // Realizar el console log de los datos guardados
         console.log('UserName:', userName);
@@ -64,7 +65,8 @@ function Config() {
                     autoComplete="off"
                     placeholder='192.168.1.1'
                     value={ip}
-                    onChange={(e) => setIp(e.target.value)}
+                    // onChange={(e) => setIp(e.target.value)}
+                    onChange={(e) => setIp(getIPAddress())}
                 />
             </div>
 
@@ -90,7 +92,6 @@ function Config() {
 
             <h3>Set Status</h3>
             <div className="set-info">
-                <label htmlFor="status-selector">Select Your Status: </label>
                 <select
                     id="status-selector"
                     value={status}

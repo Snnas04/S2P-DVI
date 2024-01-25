@@ -36,19 +36,30 @@ function Users() {
 
         fetchData();
     }, []);
-
+    
     return (
         <div className='chat-content' id="users">
             {usersData ? (
                 <div id='users-content'>
                     <h2>Users</h2>
                     <div id="users-list">
-                        {usersData.map((userData, index) => (
+                        <h3>Connected</h3>
+                        {usersData.filter(usersData => usersData.status).map((userData, index) => (
                             <div
                                 className={`chatsBtn ${userData.status ? 'active' : 'inactive'}`}
                                 key={index}
                             >
-                                {userData.nom}<br/>ip: {userData.ip}
+                                {userData.nom}
+                            </div>
+                        ))}
+
+                        <h3>Disconnected</h3>
+                        {usersData.filter(usersData => !usersData.status).map((userData, index) => (
+                            <div
+                                className={`chatsBtn ${userData.status ? 'active' : 'inactive'}`}
+                                key={index}
+                            >
+                                {userData.nom}
                             </div>
                         ))}
                     </div>
