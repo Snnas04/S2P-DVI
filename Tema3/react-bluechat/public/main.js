@@ -1,64 +1,49 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
-const os = require('os');
+const path = require('path');
 
-let win;
+const { app, BrowserWindow } = require('electron');
+const isDev = require('electron-is-dev');
 
 function createWindow() {
-    win = new BrowserWindow({ width: 800, height: 600 });
-    win.loadFile('index.js');
+  // Create the browser window.
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      // nodeIntegration: true,
+      preload: path.join(__dirname, 'preload.js'),
+    },
+  });
 
-    win.webContents.on('did-finish-load', () => {
-        const networkInterfaces = os.networkInterfaces();
-        const ipAddresses = [];
-
-        Object.keys(networkInterfaces).forEach((key) => {
-            networkInterfaces[key].forEach((iface) => {
-                if (iface.family === 'IPv4' && !iface.internal) {
-                    ipAddresses.push(iface.address);
-                }
-            });
-        });
-
-        const lastIPAddress = ipAddresses[ipAddresses.length - 1];
-
-        // Enviar la dirección IP al proceso de renderizado
-        win.webContents.send('send-ip-address', lastIPAddress);
-    });
-
-    win.on('closed', () => {
-        win = null;
-    });
+  // and load the index.html of the app.
+  // win.loadFile("index.html");
+  win.loadURL(
+    isDev
+      ? 'http://localhost:3000'
+      : `file://${path.join(__dirname, '../build/index.html')}`
+  );
+  // Open the DevTools.
+  if (isDev) {
+    // win.webContents.openDevTools({ mode: 'detach' });
+    win.webContents.openDevTools();
+  }
 }
 
-app.on('ready', createWindow);
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
+// Some APIs can only be used after this event occurs.
+app.whenReady().then(createWindow);
 
+// Quit when all windows are closed, except on macOS. There, it's common
+// for applications and their menu bar to stay active until the user quits
+// explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') {
-        app.quit();
-    }
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
 });
 
 app.on('activate', () => {
-    if (win === null) {
-        createWindow();
-    }
-});
-
-// Agregar manejo para la comunicación entre procesos
-ipcMain.on('get-ip-address', (event) => {
-    const networkInterfaces = os.networkInterfaces();
-    const ipAddresses = [];
-
-    Object.keys(networkInterfaces).forEach((key) => {
-        networkInterfaces[key].forEach((iface) => {
-            if (iface.family === 'IPv4' && !iface.internal) {
-                ipAddresses.push(iface.address);
-            }
-        });
-    });
-
-    const lastIPAddress = ipAddresses[ipAddresses.length - 1];
-
-    // Enviar la dirección IP al proceso de renderizado
-    event.reply('send-ip-address', lastIPAddress);
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow();
+  }
 });

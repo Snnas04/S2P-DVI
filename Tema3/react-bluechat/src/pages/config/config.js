@@ -1,4 +1,4 @@
-import React, { useState, os } from 'react';
+import React, { useState } from 'react';
 import writeUserData  from '../../firebase/sendData';
 import './config.css';
 
@@ -15,24 +15,7 @@ function Config() {
     const [lastConnectionTime, setLastConnectionTime] = useState(currentTimeString);
     const [status, setStatus] = useState('online'); // Valor predeterminado: online
 
-    // Obtener la dierccion IP
-    const getIPAddress = () => {
-        const networkInterfaces = os.networkInterfaces();
-        const ipAddresses = [];
-
-        Object.keys(networkInterfaces).forEach((key) => {
-            networkInterfaces[key].forEach((iface) => {
-                if (iface.family === 'IPv4' && !iface.internal) {
-                    ipAddresses.push(iface.address);
-                }
-            });
-        });
-
-        const lastIPAddress = ipAddresses[ipAddresses.length - 1];
-        return lastIPAddress;
-    }
-
-
+    
     const handleSetClick = () => {
         // Realizar el console log de los datos guardados
         console.log('UserName:', userName);
@@ -65,8 +48,7 @@ function Config() {
                     autoComplete="off"
                     placeholder='192.168.1.1'
                     value={ip}
-                    // onChange={(e) => setIp(e.target.value)}
-                    onChange={(e) => setIp(getIPAddress())}
+                    onChange={(e) => setIp()}
                 />
             </div>
 

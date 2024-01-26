@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import Chat from './chat/chat';
-import Users from './chat/users';
 import Config from './config/config';
 
 import './home.css';
@@ -26,13 +25,7 @@ function Home() {
       </div>
 
       <div id="mid">
-        {/* Mostrar Users y Chat por defecto */}
-        {activeComponent === 'BlueChat' && (
-          <div id="users">
-            <Users />
-          </div>
-        )}
-
+        {/* Mostrar Users cuando se hace clic en 'BlueChat' */}
         {activeComponent === 'BlueChat' && (
           <div id="chat">
             <Chat />

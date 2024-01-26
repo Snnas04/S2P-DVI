@@ -43,6 +43,7 @@
 /* CHAT */
 #messages {
     flex-direction: row;
+    height: 40vh;
 }
 
 #textbar {
@@ -55,6 +56,23 @@
 
     background-color: #1e1e1e;
     border-radius: 10px;
+}
+
+#userSelected {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 400px;
+    padding: 20px;
+    margin: 20px;
+
+    background-color: #1e1e1e;
+    border-radius: 10px;
+}
+
+#no-user-selected {
+    margin: auto;
 }
 
 /* USERS */
