@@ -41,53 +41,57 @@ function Chat() {
 
     return (
         <div id="chat-content">
-            {usersData ? (
-                <div id='users-content'>    
-                    <h2>Users</h2>
-                    <div id="users-list">
-                        <h3>Connected</h3>
-                        {usersData.filter(userData => userData.status).map((userData, index) => (
-                            <div
-                                className={`chatsBtn ${userData.status ? 'active' : 'inactive'}`}
-                                key={index}
-                                onClick={() => setSelectedUser(userData)}
-                            >
-                                {userData.nom}
-                            </div>
-                        ))}
+            <div className='chat-content' id='users-list'>
+                {usersData ? (
+                    <div>    
+                        <h2>Users</h2>
+                        <div>
+                            <h3>Connected</h3>
+                            {usersData.filter(userData => userData.status).map((userData, index) => (
+                                <div
+                                    className={`chatsBtn ${userData.status ? 'active' : 'inactive'}`}
+                                    key={index}
+                                    onClick={() => setSelectedUser(userData)}
+                                >
+                                    {userData.nom}
+                                </div>
+                            ))}
 
-                        <h3>Disconnected</h3>
-                        {usersData.filter(userData => !userData.status).map((userData, index) => (
-                            <div
-                                className={`chatsBtn ${userData.status ? 'active' : 'inactive'}`}
-                                key={index}
-                                onClick={() => setSelectedUser(userData)}
-                            >
-                                {userData.nom}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            ) : (
-                <p>Loading data...</p>
-            )}
-
-            <div id="userSelected">
-                {selectedUser ? (
-                    <div>
-                        <h2>{selectedUser.nom}</h2>
-                        <p>Status: {selectedUser.status ? 'Connected' : 'Disconnected'}</p>
+                            <h3>Disconnected</h3>
+                            {usersData.filter(userData => !userData.status).map((userData, index) => (
+                                <div
+                                    className={`chatsBtn ${userData.status ? 'active' : 'inactive'}`}
+                                    key={index}
+                                    onClick={() => setSelectedUser(userData)}
+                                >
+                                    {userData.nom}
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 ) : (
-                    <p id='no-user-selected'>No user selected</p>
+                    <p>Loading data...</p>
                 )}
             </div>
-            <div className='chat-content' id="messages"></div>
 
-            <form id="textbar">
-                <input id="input" autoComplete="off" autoFocus />
-                <button>Send</button>
-            </form>
+            <div className='chat-content' id='message-content'>
+                <div id="userSelected">
+                    {selectedUser ? (
+                        <div>
+                            <h2>{selectedUser.nom}</h2>
+                            <p>{selectedUser.status ? 'Connected' : 'Disconnected'}</p>
+                        </div>
+                    ) : (
+                        <p id='no-user-selected'>No user selected</p>
+                    )}
+                </div>
+                <div id="messages"></div>
+
+                <form id="textbar">
+                    <input id="input" autoComplete="off" autoFocus />
+                    <button>Send</button>
+                </form>
+            </div>
         
             <script src="/socket.io/socket.io.js"></script>
             <script src="./client.js"></script>

@@ -1,4 +1,3 @@
-/* BOUTH */
 .chat-content {
     display: flex;
     overflow-y: scroll;
@@ -13,6 +12,13 @@
     background-color: #1e1e1e;
     border-radius: 10px;
 
+}
+
+#chat-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* For Chrome, Safari and Opera */
@@ -34,7 +40,6 @@
     background: #3f46af; /* Color of the scroll thumb on hover */
 }
 
-/* For Firefox */
 .chat-content {
     scrollbar-width: thin; /* Width of the scrollbar */
     scrollbar-color: #6169d6 #1e1e1e; /* Color of the scrollbar and track */
@@ -76,7 +81,7 @@
 }
 
 /* USERS */
-#users-content {
+#users {
     display: flex;
     flex-direction: column;
     margin: auto;
