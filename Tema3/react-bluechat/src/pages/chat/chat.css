@@ -1,6 +1,7 @@
 .chat-content {
     display: flex;
     overflow-y: scroll;
+    flex-direction: column;
 
     min-width: 250px;
     height: 100%;
@@ -16,7 +17,7 @@
 
 #chat-content {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
@@ -47,8 +48,10 @@
 
 /* CHAT */
 #messages {
-    flex-direction: row;
+    flex-direction: column;
     height: 40vh;
+    background-color: #171819;
+    border-radius: 10px;
 }
 
 #textbar {
@@ -69,8 +72,8 @@
     align-items: center;
 
     width: 400px;
-    padding: 20px;
-    margin: 20px;
+    padding: 5px;
+    margin: 10px;
 
     background-color: #1e1e1e;
     border-radius: 10px;

@@ -78,17 +78,21 @@ function Chat() {
                 <div id="userSelected">
                     {selectedUser ? (
                         <div>
-                            <h2>{selectedUser.nom}</h2>
-                            <p>{selectedUser.status ? 'Connected' : 'Disconnected'}</p>
+                            <h3>{selectedUser.nom} - {selectedUser.status ? 'Connected' : 'Disconnected'}</h3>
                         </div>
                     ) : (
-                        <p id='no-user-selected'>No user selected</p>
+                        <h3 id='no-user-selected'>No user selected</h3>
                     )}
                 </div>
                 <div id="messages"></div>
 
                 <form id="textbar">
-                    <input id="input" autoComplete="off" autoFocus />
+                    <input 
+                        id="input" 
+                        autoComplete="off" 
+                        autoFocus 
+                        placeholder='Enter your message ...' 
+                    />
                     <button>Send</button>
                 </form>
             </div>
