@@ -9,54 +9,32 @@ const connection = mysql.createConnection({
   ssl: true
 });
 
-// funcion que realiza la query para el top 10 de productos
-const getTopProducts = () => {
-  return new Promise((resolve, reject) => {
-    connection.query('SELECT p.productName, SUM(od.quantityOrdered) as quantityOrdered FROM products p JOIN orderdetails od ON p.productCode = od.productCode GROUP BY p.productName ORDER BY SUM(od.quantityOrdered) DESC LIMIT 10;', (err, results) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(results);
-      }
-    });
-  });
-}
+let sqlTop10 = 'SELECT p.productName, SUM(od.quantityOrdered) as quantityOrdered FROM products p JOIN orderdetails od ON p.productCode = od.productCode GROUP BY p.productName ORDER BY SUM(od.quantityOrdered) DESC LIMIT 10;';
 
-// funcion que realiza la query para el numero de unidades vendidas de todos los productos
-const getNumberOfUnitsSold = () => {
-  return new Promise((resolve, reject) => {
-    connection.query('select p.productName, sum(od.quantityOrdered) as quantityOrdered from products p join orderdetails od on p.productCode = od.productCode group by p.productName order by sum(od.quantityOrdered) desc;', (err, results) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(results);
-      }
-    });
-  });
-}
+let sqlAllProducts = 'SELECT p.productName, SUM(od.quantityOrdered) as quantityOrdered FROM products p JOIN orderdetails od ON p.productCode = od.productCode GROUP BY p.productName ORDER BY SUM(od.quantityOrdered) DESC;';
 
 // función que devuelve los datos de la consulta
 const getTop10QueryData = () => {
-  return new Promise((resolve, reject) => {
-    getTopProducts()
-      .then(results => {
-        resolve(results);
+    return new Promise((resolve, reject) => {
+      connection.query(sqlTop10, (err, results) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(results);
+        }
       })
-      .catch(err => {
-        reject(err);
-      })
-  });
-}
+    });
+  }
 
 const getNumberOfUnitsSoldQueryData = () => {
   return new Promise((resolve, reject) => {
-    getNumberOfUnitsSold()
-      .then(results => {
-        resolve(results);
-      })
-      .catch(err => {
+    connection.query(sqlAllProducts, (err, results) => {
+      if (err) {
         reject(err);
-      })
+      } else {
+        resolve(results);
+      }
+    });
   });
 }
 
