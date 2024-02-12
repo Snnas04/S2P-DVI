@@ -1,12 +1,1 @@
--- find the top 10 products that have been ordered the most
-select p.productName, sum(od.quantityOrdered) as quantityOrdered from products p
-join orderdetails od on p.productCode = od.productCode
-group by p.productName
-order by sum(od.quantityOrdered) desc
-limit 10;
-
--- display number of units sold for all products
-select p.productName, sum(od.quantityOrdered) as quantityOrdered from products p
-join orderdetails od on p.productCode = od.productCode
-group by p.productName
-order by sum(od.quantityOrdered) desc;
+SELECT p.productName, SUM(od.quantityOrdered * od.priceEach) as totalValue FROM products p JOIN orderdetails od ON p.productCode = od.productCode GROUP BY p.productName ORDER BY SUM(od.quantityOrdered * od.priceEach) ASC LIMIT 5;

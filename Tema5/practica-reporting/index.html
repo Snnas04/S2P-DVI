@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Data</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="root">
+    <section id="top">
+      <h3>Select the year</h3>
+      <select id="selectYear">
+        <option value="2003">2003</option>
+        <option value="2004">2004</option>
+        <option value="2005">2005</option>
+      </select>
+
+      <button id="getPDF">Get PDF</button>
+    </section>
+    
+    <section id="top15">
+      <h3>Top 15 Products</h3>
+      <div id="top15Content"></div>
+    </section>
+
+    <section id="top5Most">
+      <h3>Top 5 Most Valuable Products</h3>
+      <div id="top5MostContent"></div>
+    </section>
+
+    <section id="top5Less">
+      <h3>Top 15 Less Valuable Products</h3>
+      <div id="top5LessContent"></div>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
