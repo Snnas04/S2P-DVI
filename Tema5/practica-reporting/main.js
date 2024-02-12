@@ -17,5 +17,20 @@ function createWindow () {
 }
 
 app.whenReady().then(() => {
-    createWindow()
+  createWindow()
+
+  ipcMain.handle('getTop15QueryData', async (event) => {
+    const data = await getTop15QueryData();
+    return data;
+  });
+  
+  ipcMain.handle('getTop5MostValuableQueryData', async (event) => {
+    const data = await getTop5MostValuableQueryData();
+    return data;
+  });
+  
+  ipcMain.handle('getTop5LessValuableQueryData', async (event) => {
+    const data = await getTop5LessValuableQueryData();
+    return data;
+  });
 })
