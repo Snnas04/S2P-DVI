@@ -7,29 +7,38 @@
 <body>
   <div id="root">
     <section id="top">
-      <h3>Select the year</h3>
-      <select id="selectYear">
-        <option value="2003">2003</option>
-        <option value="2004">2004</option>
-        <option value="2005">2005</option>
-      </select>
-
-      <button id="getPDF">Get PDF</button>
+      <h3>Product Data</h3>
+      <div>
+        <h4>Select the year</h4>
+        <select id="selectYear">
+          <option value="2003">2003</option>
+          <option value="2004">2004</option>
+          <option value="2005">2005</option>
+        </select>  
+  
+        <button id="getPDF">Get PDF</button>        
+      </div>
     </section>
+
+    <section id="chartContent">
+      <div id="chartContentTop">
+        <article id="top15">
+          <h3>Top 15 Products</h3>
+          <canvas id="top15Content"></canvas>
+        </article>  
+      </div>
+
+      <div id="chartContentBottom">
+        <article id="top5Most">
+          <h3>Top 5 Most Valuable Products</h3>
+          <canvas id="top5MostContent"></canvas>
+        </article>
     
-    <section id="top15">
-      <h3>Top 15 Products</h3>
-      <canvas class="cahrt" id="top15Content"></canvas>
-    </section>
-
-    <section id="top5Most">
-      <h3>Top 5 Most Valuable Products</h3>
-      <canvas class="cahrt" id="top5MostContent"></canvas>
-    </section>
-
-    <section id="top5Less">
-      <h3>Top 15 Less Valuable Products</h3>
-      <canvas class="cahrt" id="top5LessContent"></canvas>
+        <article id="top5Less">
+          <h3>Top 15 Less Valuable Products</h3>
+          <canvas id="top5LessContent"></canvas>
+        </article>        
+      </div>
     </section>
   </div>
 

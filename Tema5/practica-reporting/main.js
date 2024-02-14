@@ -33,4 +33,9 @@ app.whenReady().then(() => {
     const data = await getTop5LessValuableQueryData();
     return data;
   });
+
+  ipcMain.handle('getQueryDataByYear', async (event, year) => {
+    const data = await getQueryDataByYear(year);
+    return data;
+  });
 })

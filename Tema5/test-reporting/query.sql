@@ -1,1 +1,1 @@
-SELECT p.productName, SUM(od.quantityOrdered * od.priceEach) as totalValue FROM products p JOIN orderdetails od ON p.productCode = od.productCode GROUP BY p.productName ORDER BY SUM(od.quantityOrdered * od.priceEach) ASC LIMIT 5;
+SELECT p.productName, SUM(od.quantityOrdered * od.priceEach) as totalValue FROM products p JOIN orderdetails od ON p.productCode = od.productCode JOIN orders o ON od.orderNumber = o.orderNumber WHERE YEAR(o.orderDate) = "2004" GROUP BY p.productName ORDER BY SUM(od.quantityOrdered * od.priceEach) ASC LIMIT 5;
