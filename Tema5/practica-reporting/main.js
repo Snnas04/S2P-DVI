@@ -67,7 +67,7 @@ function createWindow () {
                 {
                     label: 'Documentation',
                     click: async () => {
-                        win.loadFile('documentation.html');
+                        win.loadFile('docs.html');
                     }
                 }
             ]
