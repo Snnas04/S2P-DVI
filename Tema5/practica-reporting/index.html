@@ -1,48 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Product Data</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <div id="root">
-    <section id="top">
-      <h3>Product Data</h3>
-      <div>
-        <h4>Select the year</h4>
-        <select id="selectYear">
-          <option value="2003">2003</option>
-          <option value="2004">2004</option>
-          <option value="2005">2005</option>
-        </select>  
-  
-        <button id="getPDF">Get PDF</button>        
-      </div>
+    <h1>Welcome to the home page</h1>
+
+    <section>
+        <p>Click the buttons below to access the rest of the pages of this application or use the "Pages" option in the upper menu</p>
+        <p>The meun also has an option within the "File" section to export the page in which you are in PDF format</p>
+        <div id="accessPages">
+            <a href="reports.html">Reports</a>
+            <a href="documentation.html">Documentation</a>            
+        </div>
     </section>
 
-    <section id="chartContent">
-      <div id="chartContentTop">
-        <article id="top15">
-          <h3>Top 15 Products</h3>
-          <canvas id="top15Content"></canvas>
-        </article>  
-      </div>
-
-      <div id="chartContentBottom">
-        <article id="top5Most">
-          <h3>Top 5 Most Valuable Products</h3>
-          <canvas id="top5MostContent"></canvas>
-        </article>
-    
-        <article id="top5Less">
-          <h3>Top 15 Less Valuable Products</h3>
-          <canvas id="top5LessContent"></canvas>
-        </article>        
-      </div>
-    </section>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="index.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

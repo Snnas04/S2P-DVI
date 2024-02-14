@@ -9,11 +9,17 @@ const connection = mysql.createConnection({
   ssl: true
 })
 
-let sqlTop15BestSellers = 'SELECT p.productName, SUM(od.quantityOrdered) as quantityOrdered FROM products p JOIN orderdetails od ON p.productCode = od.productCode JOIN orders o ON od.orderNumber = o.orderNumber WHERE YEAR(o.orderDate) = ? GROUP BY p.productName ORDER BY SUM(od.quantityOrdered) DESC LIMIT 15;'
+let sqlTop15BestSellers = 'SELECT p.productName, SUM(od.quantityOrdered) as quantityOrdered FROM products p JOIN orderdetails od ON p.productCode = od.productCode JOIN orders o ON od.orderNumber = o.orderNumber WHERE YEAR(o.orderDate) = 2003 GROUP BY p.productName ORDER BY SUM(od.quantityOrdered) DESC LIMIT 15;'
 
-let sqlTop5MostValuable = 'SELECT p.productName, SUM(od.quantityOrdered * od.priceEach) as totalValue FROM products p JOIN orderdetails od ON p.productCode = od.productCode JOIN orders o ON od.orderNumber = o.orderNumber WHERE YEAR(o.orderDate) = ? GROUP BY p.productName ORDER BY SUM(od.quantityOrdered * od.priceEach) DESC LIMIT 5;'
+let sqlTop5MostValuable = 'SELECT p.productName, SUM(od.quantityOrdered * od.priceEach) as totalValue FROM products p JOIN orderdetails od ON p.productCode = od.productCode JOIN orders o ON od.orderNumber = o.orderNumber WHERE YEAR(o.orderDate) = 2003 GROUP BY p.productName ORDER BY SUM(od.quantityOrdered * od.priceEach) DESC LIMIT 5;'
 
-let sqlTop5LessValuable = 'SELECT p.productName, SUM(od.quantityOrdered * od.priceEach) as totalValue FROM products p JOIN orderdetails od ON p.productCode = od.productCode JOIN orders o ON od.orderNumber = o.orderNumber WHERE YEAR(o.orderDate) = ? GROUP BY p.productName ORDER BY SUM(od.quantityOrdered * od.priceEach) ASC LIMIT 5;'
+let sqlTop5LessValuable = 'SELECT p.productName, SUM(od.quantityOrdered * od.priceEach) as totalValue FROM products p JOIN orderdetails od ON p.productCode = od.productCode JOIN orders o ON od.orderNumber = o.orderNumber WHERE YEAR(o.orderDate) = 2003 GROUP BY p.productName ORDER BY SUM(od.quantityOrdered * od.priceEach) ASC LIMIT 5;'
+
+let sqlTop15BestSellersDate = 'SELECT p.productName, SUM(od.quantityOrdered) as quantityOrdered FROM products p JOIN orderdetails od ON p.productCode = od.productCode JOIN orders o ON od.orderNumber = o.orderNumber WHERE YEAR(o.orderDate) = ? GROUP BY p.productName ORDER BY SUM(od.quantityOrdered) DESC LIMIT 15;'
+
+let sqlTop5MostValuableDate = 'SELECT p.productName, SUM(od.quantityOrdered * od.priceEach) as totalValue FROM products p JOIN orderdetails od ON p.productCode = od.productCode JOIN orders o ON od.orderNumber = o.orderNumber WHERE YEAR(o.orderDate) = ? GROUP BY p.productName ORDER BY SUM(od.quantityOrdered * od.priceEach) DESC LIMIT 5;'
+
+let sqlTop5LessValuableDate = 'SELECT p.productName, SUM(od.quantityOrdered * od.priceEach) as totalValue FROM products p JOIN orderdetails od ON p.productCode = od.productCode JOIN orders o ON od.orderNumber = o.orderNumber WHERE YEAR(o.orderDate) = ? GROUP BY p.productName ORDER BY SUM(od.quantityOrdered * od.priceEach) ASC LIMIT 5;'
 
 // función que devuelve los datos de la consulta
 const getTop15QueryData = () => {
@@ -52,24 +58,47 @@ const getTop5LessValuableQueryData = () => {
     })
   }
 
-async function getQueryDataByYear(year) {
-  let data1 = await performQuery(sqlTop15BestSellers, year);
-  let data2 = await performQuery(sqlTop5MostValuable, year);
-  let data3 = await performQuery(sqlTop5LessValuable, year);
+  const getTop15QueryDataYear = (year) => {
+    return new Promise((resolve, reject) => {
+      connection.query(sqlTop15BestSellersDate, [year], (err, results) => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(results)
+        }
+      })
+    })
+  }
 
-  return { data1, data2, data3 };
+const getTop5MostValuableQueryDataYear = (year) => {
+    return new Promise((resolve, reject) => {
+      connection.query(sqlTop5MostValuableDate, [year], (err, results) => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(results)
+        }
+      })
+    })
+  }
+
+const getTop5LessValuableQueryDataYear = (year) => {
+    return new Promise((resolve, reject) => {
+      connection.query(sqlTop5LessValuableDate, [year], (err, results) => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(results)
+        }
+      })
+    })
+  }
+
+module.exports = { 
+  getTop15QueryData,
+  getTop5MostValuableQueryData,
+  getTop5LessValuableQueryData,
+  getTop15QueryDataYear,
+  getTop5MostValuableQueryDataYear,
+  getTop5LessValuableQueryDataYear
 }
-
-function performQuery(sql, year) {
-  return new Promise((resolve, reject) => {
-      connection.query(sql, [year], (error, results) => {
-          if (error) {
-              reject(error);
-          } else {
-              resolve(results);
-          }
-      });
-  });
-}
-
-module.exports = { getTop15QueryData, getTop5MostValuableQueryData, getTop5LessValuableQueryData, getQueryDataByYear }
