@@ -64,12 +64,6 @@ function createWindow () {
                         win.loadFile('reports.html');
                     }
                 },
-                {
-                    label: 'Documentation',
-                    click: async () => {
-                        win.loadFile('docs.html');
-                    }
-                }
             ]
         }
     ]);
