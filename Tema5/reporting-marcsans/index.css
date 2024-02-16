@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    background-color: #7a82eb;
+    padding: 20px;
+    border-radius: 10px;
+
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 20px;
+
+    min-width: fit-content;
+    max-width: fit-content;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    padding: 10px;
+    width: 25%;
+
+    text-align: justify;
+
+    margin: auto;
+}
+
+#accessPages {
+    margin-top: 50px;
+}
+
+a {
+    font-weight: 700;
+
+    color: #7a82eb;
+    text-decoration: none;
+
+    padding: 10px;
+    border-radius: 10px;
+
+    background-color: #dddddd;
+
+    cursor: pointer;
+}
+
+a:hover {
+    background-color: #cacaca;
+}
