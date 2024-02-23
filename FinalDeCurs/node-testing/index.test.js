@@ -1,41 +1,47 @@
-const { sum, rest, mult, div } = require('./index.js');
+const { sum } = require('./index.js');
+const assert = require('assert');
 
-// suma
-test('simple sum test', () => {
-    expect(sum(1, 2)).toBe(3);
+// equal
+test('test with equal', () => {
+    assert.equal(sum(1, 2), 3);
 })
 
-test('sum with negative numbers test', () => {
-    expect(sum(-1, 2)).toBe(1);
+// notEqual
+test('test with not equal', () => {
+    assert.notEqual(sum(1, 2), 4);
 })
 
-// resta
-test('simple rest test', () => {
-    expect(rest(4, 1)).toBe(3);
+// deepEqual
+test('test with deep equal', () => {
+    assert.deepEqual(sum("a", "b"), "ab");
 })
 
-test('rest with negative numbers test', () => {
-    expect(rest(-1, 2)).toBe(-3);
+// les dues estructures son exactament iguals, amb el set no importa l'ordre ni els duplicats
+test('second test with deep equal', () => {
+    assert.deepEqual({
+        a:1,
+        b:{a:1, b:"a"},
+        c:[1,2,3],
+        d:new Set([1,2,3]),
+    }, {
+        a:1,
+        b:{a:1, b:"a"},
+        c:[1,2,3],
+        d:new Set([3,1,2,3]),
+    });
 })
 
-// multiplicación
-test('simple mult test', () => {
-    expect(mult(6, 2)).toBe(12);
+// notDeepEqual
+test('test with not deep equal', () => {
+    assert.notDeepEqual(sum(1, 2), 6);
 })
 
-test('mult with negative numbers test', () => {
-    expect(mult(-1, 2)).toBe(-2);
+// ok
+// si es false done error - string buida, 0, null, undefined, NaN, false
+test('test with ok - true', () => {
+    assert.ok(1);
 })
 
-// división
-test('simple div test', () => {
-    expect(div(6, 2)).toBe(3);
-})
-
-test('div by 0 test', () => {
-    expect(div(6, 0)).toBe("Error");
-})
-
-test('div with negative numbers test', () => {
-    expect(div(-6, 2)).toBe(-3);
+test('test with ok - false string', () => {
+    assert.ok("false");
 })
